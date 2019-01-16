@@ -1,0 +1,117 @@
+package com.jumploo.cms.conf;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+import com.jumploo.cms.db.DBConfig;
+import com.jumploo.cms.util.ConvertUtil;
+import com.jumploo.test.mongo1.MongoDBPool;
+
+
+
+public class Cms 
+{
+	Logger runLog = Logger.getLogger(Cms.class.getName());
+	public void init(String path) throws Exception
+	{
+		initConf(path);
+		initDB();
+		initThread();
+	//	initStatistic();
+		initTcp();
+		initRedis();
+		initData();
+	 }
+	private void initTcp()
+	{
+	}
+	private void initRedis()
+	{
+		
+	}
+	private void initData() throws Exception
+	{
+	}
+	
+//	private void initStatistic() throws Exception
+//	{
+//		
+//		Attendance atten1 = new Attendance();
+//		atten1.setCmdType(SysDefine.PROCESS_FLITERDATA);
+//		
+//		Attendance atten2 = new Attendance();
+//		atten2.setCmdType(SysDefine.PROCESS_STATISTIC);
+//		
+//		Attendance atten3 = new Attendance();
+//		atten3.setCmdType(SysDefine.PROCESS_CLEANDATA);
+//		
+//		Attendance[] attenList = {atten1, atten2, atten3};
+//		SysDefine.statisticThreadProcess.addTask(attenList);
+//	}
+	
+	private void initThread() throws Exception
+	{
+	}
+	
+	private void initConf(String path) throws Exception
+	{
+		SAXReader read = new SAXReader();
+		Document doc = read.read(path+SysDefine.LOCAL_CONF);
+		Element root = doc.getRootElement();
+		
+		Element ele = root.element("db");
+		List list = ele.elements("address");
+		int len = list.size();
+		SysDefine.dbIp = new String[len];
+		SysDefine.dbPort = new int[len];
+		
+		for(int i =0;i<len;i++)
+		{
+			Element arr = (Element)list.get(i);
+			String[] aa = arr.getText().split(":");
+			SysDefine.dbIp[i] = aa[0];
+			SysDefine.dbPort[i] = ConvertUtil.parseInt(aa[1]);
+		}
+	}
+	
+	private void initDB() throws Exception
+	{
+
+		MongoDBPool mongoPool = null;
+		if (SysDefine.dbIp.length == 1)
+		{
+			mongoPool = new MongoDBPool(SysDefine.dbIp[0],SysDefine.dbPort[0],new String[]{DBConfig.DB_SCHDB_NAME,DBConfig.DB_BASIC_NAME, DBConfig.DB_PROJCT_NAME, DBConfig.DB_PROJCTDEL_NAME, DBConfig.DB_KEY_NAME, DBConfig.DB_KEYDEL_NAME});
+		}
+		else
+		{
+			mongoPool = new MongoDBPool(SysDefine.dbIp,SysDefine.dbPort,new String[]{DBConfig.DB_SCHDB_NAME,DBConfig.DB_BASIC_NAME, DBConfig.DB_PROJCT_NAME, DBConfig.DB_PROJCTDEL_NAME, DBConfig.DB_KEY_NAME, DBConfig.DB_KEYDEL_NAME});
+		}
+		
+		SysDefine.mongoPorcess = mongoPool.getMongoDBProcess(DBConfig.DB_SCHDB_NAME);
+		SysDefine.mongoPorcess1 = mongoPool.getMongoDBProcess(DBConfig.DB_BASIC_NAME);
+		SysDefine.mongoPorcess2 = mongoPool.getMongoDBProcess(DBConfig.DB_KEY_NAME);
+		SysDefine.mongoPorcess3 = mongoPool.getMongoDBProcess(DBConfig.DB_KEYDEL_NAME);
+		SysDefine.mongoPorcess4 = mongoPool.getMongoDBProcess(DBConfig.DB_PROJCT_NAME);
+		SysDefine.mongoPorcess5 = mongoPool.getMongoDBProcess(DBConfig.DB_PROJCTDEL_NAME);
+//		
+
+//		MongoFilePool mp = null;
+//		if (SysDefine.dbIp.length == 1)
+//		{
+//			mp = new MongoFilePool(SysDefine.dbIp[0],SysDefine.dbPort[0],new String[]{SysDefine.MONG_DB_YJF,SysDefine.MONG_DB_HEAD,SysDefine.MONG_DB_SUO});
+//		}
+//		else
+//		{
+//			mp = new MongoFilePool(SysDefine.dbIp,SysDefine.dbPort,
+//					new String[]{SysDefine.MONG_DB_SUO,SysDefine.MONG_DB_YJF,SysDefine.MONG_DB_HEAD});
+//		}
+//		DBConfig.mongProcess = new MongoDBInterface[3]; 
+//		DBConfig.mongProcess[0] = mp.getMongoDBProcess(SysDefine.MONG_DB_SUO);
+//		DBConfig.mongProcess[1] = mp.getMongoDBProcess(SysDefine.MONG_DB_YJF);
+//		DBConfig.mongProcess[2] = mp.getMongoDBProcess(SysDefine.MONG_DB_HEAD);
+	}
+}

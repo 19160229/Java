@@ -1,0 +1,196 @@
+package com.jumploo.cms.tcp;
+
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.mina.core.future.ConnectFuture;
+import org.apache.mina.core.session.IoSession;
+import org.apache.mina.filter.codec.ProtocolCodecFilter;
+import org.apache.mina.transport.socket.nio.NioSocketConnector;
+
+import com.real.tcpserver.codec.SimpleMessageCodecFactory;
+import com.real.tcpserver.msg.simple.SimpleIoMessage;
+import com.real.tcpserver.msg.simple.SimpleIoMessageHelper;
+import com.real.tcpserver.service.IoServiceHandler;
+import com.real.tcpserver.tool.ByteTools;
+import com.jumploo.cms.tcp.TcpConf;
+
+
+public class TCPClinet
+{
+	private static final Log runLog = LogFactory.getLog(TCPClinet.class);
+	private IoSession session;
+	private NioSocketConnector ioConnector = null;
+	private SocketAddress address = null;
+	private boolean disconnect = true;
+
+	private SocketAddress localAddress = null;
+	public boolean getDisconnect()
+	{
+		return disconnect;
+	}
+
+	void setDisconnectWaitTime(boolean disconnect)
+	{
+		this.disconnect = disconnect;
+	}
+
+	public TCPClinet(String remoteIp, int port,
+            ClinetProcessHandler clientProcess)
+    {
+        ioConnector = new NioSocketConnector();
+        try
+        {
+            // ���ÿͻ��˴����handle
+            ioConnector.setHandler(new ClientHandler(clientProcess,this));
+            
+            address = new InetSocketAddress(remoteIp, port);
+            ioConnector.getFilterChain().addFirst("Codec",
+                    new ProtocolCodecFilter(new SimpleMessageCodecFactory(new Handler())));
+            ioConnector.getSessionConfig().setReceiveBufferSize(1024);
+            ioConnector.getSessionConfig().setSendBufferSize(10240);
+            ConnectFuture connFuture = ioConnector.connect(address);
+            connFuture.awaitUninterruptibly(5000);
+            ioConnector.getSessionConfig().setUseReadOperation(true);
+            if (connFuture.isConnected())
+            {
+                session = connFuture.getSession();
+            }
+            else
+            {
+                runLog.fatal("connect xxxxx.....");
+            }
+        }
+        catch (Exception ee)
+        {
+            runLog.error("init clinet exception ", ee);
+            System.gc();
+        }
+    }
+	
+	
+	public TCPClinet(String remoteIp, int port,
+	        IoServiceHandler clientProcess)
+    {
+        ioConnector = new NioSocketConnector();
+        try
+        {
+            ioConnector.setHandler(new ClientHandler(null,this));
+            
+            address = new InetSocketAddress(remoteIp, port);
+            //设置数据过滤规则
+            ioConnector.getFilterChain().addFirst("Codec",
+                    new ProtocolCodecFilter(new SimpleMessageCodecFactory(clientProcess)));
+            ioConnector.getSessionConfig().setReceiveBufferSize(1024);
+            ioConnector.getSessionConfig().setSendBufferSize(10240);
+            
+            ConnectFuture connFuture = ioConnector.connect(address);
+            connFuture.awaitUninterruptibly(5000);
+            ioConnector.getSessionConfig().setUseReadOperation(true);
+            if (connFuture.isConnected())
+            {
+                session = connFuture.getSession();
+            }
+            else
+            {
+                runLog.fatal("connect xxxxx.....");
+            }
+        }
+        catch (Exception ee)
+        {
+            runLog.error("init clinet exception ", ee);
+            System.gc();
+        }
+    }
+	private void connect()
+	{
+		ConnectFuture connFuture = ioConnector.connect(address,localAddress);
+		connFuture.awaitUninterruptibly(5000);
+		ioConnector.getSessionConfig().setUseReadOperation(true);
+		if (connFuture.isConnected())
+		{
+			session = connFuture.getSession();
+		}
+		
+	}
+
+	public void send(Object obj) throws Exception
+	{
+		if (null== session || !session.isConnected())
+		{
+			runLog.debug("TCPClinet connect Disconnect,again connect");
+			connect();
+			Thread.sleep(3000);
+			regiest();
+		}
+		SimpleIoMessage xx = (SimpleIoMessage)obj;
+		if(null != xx.getBody() && xx.getBody().length >0)
+		{
+			int len = xx.getBody().length;
+			byte[] aa = new byte[len + 10];
+//	    	ioMessage.setDataType((byte)0);
+//	    	ioMessage.setPackageVersion((byte)1);
+//	        ioMessage.setPackFlag((byte)1);
+//		    byte[] xx1 = ByteTools.shortToByte2((byte)0, (byte)1, (byte)1, (short)xx.getMsgLength());
+		    ByteTools.shortToByte2((short)xx.getMsgLength(),aa,0);
+		    //((short)(len + 8), aa, 0);
+//		    aa[0] = xx1[0];
+//		    aa[1] = xx1[1];
+            aa[2] = (byte)xx.getModuleId();
+            aa[3] = (byte)xx.getCmdType();
+            aa[4] = (byte)xx.getStatus();
+            aa[5] = (byte)xx.getSeq();
+            ByteTools.intToByte4(xx.getUserId(), aa, 6);
+        	System.arraycopy(xx.getBody(),0, aa, 10, len);
+        	//session.write(aa);
+            sendMsg(aa);
+		}
+		else
+		{
+			byte[] aa = new byte[10];
+		    ByteTools.shortToByte2((byte)0, (byte)1, (byte)1, (short)xx.getMsgLength());
+            //((short)(len + 8), aa, 0);
+            aa[2] = (byte)xx.getModuleId();
+            aa[3] = (byte)xx.getCmdType();
+            aa[4] = (byte)xx.getStatus();
+            aa[5] = (byte)xx.getSeq();
+            ByteTools.intToByte4(xx.getUserId(), aa, 6);
+		    sendMsg(aa);
+		}
+	//	System.out.println("send completed..."+obj);
+	}
+
+	public void regiest() throws Exception
+	{
+	    SimpleIoMessage ioMessage1 = new SimpleIoMessage();
+        ioMessage1.setCmdType(0x02);
+        ioMessage1.setModuleId(0x66);
+        
+        ioMessage1.setSeq(11);
+        ioMessage1.setStatus(0xff);
+        ioMessage1.setUserId(11);
+        byte[] bd = ("<rt><m>"+TcpConf.REGIEST_MID+"</m></rt>").getBytes();
+        SimpleIoMessage ioMessage = SimpleIoMessageHelper.createRequestMessage(ioMessage1,1,bd);
+        sendMsg(ioMessage);
+	}
+	private void sendMsg(Object obj) throws Exception
+	{
+		if (!disconnect && session.isConnected())
+		{
+			session.write(obj);			
+		}
+		else
+		{
+			runLog.debug("TCPClinet connect Disconnect,can't send msg");
+			//SysConstant.poolTcp.addMsg(obj);
+//			/throw new Exception();
+		}
+	}
+
+	public void close()
+	{
+		session.close(true);
+	}
+}

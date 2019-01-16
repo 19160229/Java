@@ -1,0 +1,10 @@
+package com.jumploo.cms.db.dao;
+
+import com.jumploo.cms.bean.Task;
+
+public interface TaskDao {
+	Task addTask(Task task);
+	
+	//根据task mongoIid查找task 内容
+	public int getTaskByMongoIid(Task task) throws Exception;
+}

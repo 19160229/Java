@@ -1,0 +1,7 @@
+package com.jumploo.cms.db.dao;
+
+import com.jumploo.cms.bean.User;
+
+public interface UserDao {
+	User findUserByID(String id);
+}

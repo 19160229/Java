@@ -1,0 +1,31 @@
+package com.jumploo.cms.db.server.impl;
+
+import com.jumploo.cms.bean.AppInfo;
+import com.jumploo.cms.db.dao.AppDao;
+import com.jumploo.cms.db.dao.impl.DaoManager;
+import com.jumploo.cms.db.server.AppServer;
+
+final class AppServerImpl implements AppServer
+{
+	private static AppServerImpl aa = new AppServerImpl();
+	private AppDao dao = null;
+	private AppServerImpl()
+	{
+		dao = DaoManager.getAppDao();
+	}
+	public static AppServer getServer()
+	{
+		return aa;
+	}
+	@Override
+	public int releaseAppNum() throws Exception
+	{
+		return dao.releaseAppNum();
+	}
+	
+	@Override
+	public int addAppInfo(AppInfo appInfo) throws Exception
+	{
+		return dao.addAppInfo(appInfo);
+	}
+}

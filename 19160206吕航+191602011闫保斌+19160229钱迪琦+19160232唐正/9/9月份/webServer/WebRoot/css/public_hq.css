@@ -1,0 +1,76 @@
+.top .icon {
+float: right;
+margin: 20px;
+color: #ffffff;
+font-size: 13px;
+}
+
+/*.order .chidrenTitle {
+display: block;
+width: 220px;
+line-height: 44px;
+letter-spacing: 2px;
+background-image: url("../image/left/sidebar02.png");
+font-weight: bold;
+color: #3e3a39;
+cursor: pointer;
+}
+.order .space {
+width: 220px;
+height: 150px;
+background-color: #d66d92;
+}
+
+.orderBg_pt, .orderBg_pt .order{background-color: #d66d92;}
+*/
+.search,.guest_upload{float: left;width: 70px;height: 25px;line-height: 25px;border-radius: 3px;}
+.skippage{float: left;width: 70px;height: 25px;line-height: 25px;border-radius: 3px;}
+.bulkUpload{height: 25px;line-height: 25px;border-left: 1px solid #ADADAD;margin-left: 20px;float: left;margin-right: 10px;}
+.guestUpdata,.guestDelete{cursor: pointer;}
+.deleteWeddingPhoto{text-align: center;margin-left: 2px;margin-top: 5px;cursor: pointer;font-size: 16px;}
+
+.deleteWeddingPhoto {
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #eee));
+background-image: -webkit-linear-gradient(top, #fafafa 0, #eee 100%);
+background-image: -moz-linear-gradient(top, #fafafa 0, #eee 100%);
+background-image: -o-linear-gradient(top, #fafafa 0, #eee 100%);
+background-image: -ms-linear-gradient(top, #fafafa 0, #eee 100%);
+background-image: linear-gradient(top, #fafafa 0, #eee 100%);
+-webkit-border-radius: 2px;
+border-radius: 2px;
+border: 1px solid #eee;
+text-decoration: none;
+display: block;
+padding: 4px 5px;
+text-align: center;
+color: #aaa;
+text-decoration: none
+}
+.dropzone .dz-default.dz-message span {
+display: inline;
+color: rgb(85, 85, 85);
+}
+.dropzone .dz-default.dz-message {
+background-image: none;
+font-size: 24px;
+text-align: center;
+line-height: 32px;
+left: 0px;
+width: 100%;
+margin-left: auto;
+}
+.red {
+color: #dd5a43!important;
+}
+.smaller-80 {
+font-size: 80%;
+}
+.grey {
+color: #777!important;
+}
+.blue {
+color: #478fca!important;
+}
+.grey_555{
+	color:#555
+}

@@ -1,0 +1,55 @@
+package com.jumploo.cms.mgmt.task;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.mgmt.BasicProcess;
+import com.jumploo.cms.mgmt.InterationInterface;
+import com.jumploo.cms.thread.SyncProcess;
+import com.jumploo.cms.util.Page;
+
+public class TaskListFindByTimeMgmt extends BasicProcess implements InterationInterface {
+
+	public List action(CmdOperation cmdOperation)
+	{
+		return action(cmdOperation, null);
+	}
+	
+	@Override
+	public List action(CmdOperation cmdOperation, SyncProcess process) {
+		Task task = (Task)cmdOperation;
+//		List<Task> taskList = process.getTaskList();
+		List<Task> taskList = new ArrayList<Task>();
+		Page page = new Page();
+		page.setCurPage(1);
+		page.setPageSize(10);
+		try {
+			taskServer.getTaskListByTime(taskList, task.getCreateTime(), page);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.debug(e);
+		}
+		return taskList;
+	}
+
+	@Override
+	public int process(Object[] obj, List list) throws Exception {
+		//object 数组中 0：cmdOperation对象，1： page对象
+		CmdOperation cmdOperation = (CmdOperation)obj[0];
+		Task task = (Task)cmdOperation;
+		Page page = (Page)obj[1];
+		List<Task> taskList = new ArrayList<Task>();
+		try {
+			taskServer.getTaskListByTime(taskList, task.getCreateTime(), page);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.debug(e);
+		}
+		return 0;
+	}
+
+}

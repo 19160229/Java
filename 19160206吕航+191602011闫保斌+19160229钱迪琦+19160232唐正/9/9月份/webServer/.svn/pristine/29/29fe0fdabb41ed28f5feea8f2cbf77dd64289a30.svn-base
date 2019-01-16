@@ -1,0 +1,71 @@
+package com.jumploo.cms.thread;
+
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import org.apache.log4j.Logger;
+import org.apache.mina.core.session.IoSession;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.log.LogManager;
+import com.jumploo.cms.mgmt.InterationInterface;
+
+
+public class MsgRcvThread extends SyncProcess{
+	protected static final Logger runLog = LogManager.getLogManager().getRunLog();
+	private ConcurrentLinkedQueue<Object[]> queue;
+	private InterationInterface interation = null;
+	private List list = null;
+	int len = 0;
+
+	public MsgRcvThread(InterationInterface _interation) {
+		queue = new ConcurrentLinkedQueue<Object[]>();
+		interation = _interation;
+	}
+
+	@Override
+	public void run() {
+		while (true) {
+			try {
+				Object[] objs = getTask();
+				CmdOperation cmdOperation = (CmdOperation)objs[0];
+				IoSession iosession = (IoSession)objs[1];
+				list = interation.action(cmdOperation, this);
+				
+				cl(iosession, list, cmdOperation);
+				list = null;
+				cmdOperation = null;
+			} catch (Exception ee) {
+				runLog.debug(ee);
+			}
+		}
+	}
+
+	private void cl(IoSession iosession, List list, CmdOperation cmdOperation)
+	{
+		iosession.write(null);
+	}
+	
+	public synchronized void addTask(Object[] ioMessage) {
+		queue.offer(ioMessage);
+		++len;
+		notifyAll();
+	}
+
+	public synchronized Object[] getTask() {
+		while (queue.isEmpty()) {
+			try {
+				runLog.debug(this.getName() + " wait");
+				wait();
+			} catch (Exception e) {
+
+			}
+		}
+		--len;
+		return queue.poll();
+	}
+
+	public int getCurrentLen() {
+		return len;
+	}
+}

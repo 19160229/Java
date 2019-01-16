@@ -1,0 +1,16 @@
+package com.jumploo.cms.bean;
+
+public class CmdOperation 
+{
+	private int cmdType;
+	
+	public int getCmdType() 
+	{
+		return cmdType;
+	}
+	
+	public void setCmdType(int cmdType) 
+	{
+		this.cmdType = cmdType;
+	}
+}

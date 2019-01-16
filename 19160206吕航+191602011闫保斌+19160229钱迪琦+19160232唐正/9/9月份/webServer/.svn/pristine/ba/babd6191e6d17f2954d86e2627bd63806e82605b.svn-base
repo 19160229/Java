@@ -1,0 +1,7 @@
+package com.jumploo.cms.db.dao;
+
+import com.jumploo.cms.bean.DicTaskType;
+
+public interface DicTaskTypeDao {
+	DicTaskType findDicTaskTypeByTypeId(int typeID);
+}

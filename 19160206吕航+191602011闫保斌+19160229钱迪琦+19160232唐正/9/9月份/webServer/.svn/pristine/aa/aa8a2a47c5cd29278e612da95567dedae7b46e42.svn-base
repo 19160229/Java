@@ -1,0 +1,39 @@
+package com.jumploo.cms.web.action.login;
+
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.web.action.BaseAction;
+
+public class LoginAction extends BaseAction
+{
+	private String userId;
+	private String pwd;
+	@FormBean
+	@Override
+	public String execute() throws Exception
+	{
+		setCache();
+		return SUCCESS;
+	}
+	private void setCache()
+	{
+		getRequest().getSession().setAttribute(SysDefine.SESSION_USER_ID, userId);
+	}
+	public String getUserId()
+	{
+		return userId;
+	}
+	public void setUserId(String userId)
+	{
+		this.userId = userId;
+	}
+	public String getPwd()
+	{
+		return pwd;
+	}
+	public void setPwd(String pwd)
+	{
+		this.pwd = pwd;
+	}
+}

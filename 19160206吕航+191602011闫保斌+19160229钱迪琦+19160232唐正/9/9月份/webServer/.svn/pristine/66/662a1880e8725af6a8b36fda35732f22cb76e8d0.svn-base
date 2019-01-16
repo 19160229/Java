@@ -1,0 +1,92 @@
+package com.jumploo.cms.bean;
+
+import java.util.List;
+
+public class User {
+	private String id;
+	private String nickName;
+	private String description;
+	private String brief;
+	private Picture picture;
+	private IdentityType identityType;
+	private List<Skill> skills;
+	private int gender;
+
+	public User(String id, String nickName, String description, String brief, Picture picture,
+			IdentityType identityType, List<Skill> skills, int gender) {
+		super();
+		this.id = id;
+		this.nickName = nickName;
+		this.description = description;
+		this.brief = brief;
+		this.picture = picture;
+		this.identityType = identityType;
+		this.skills = skills;
+		this.gender = gender;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getBrief() {
+		return brief;
+	}
+
+	public void setBrief(String brief) {
+		this.brief = brief;
+	}
+
+	public Picture getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Picture picture) {
+		this.picture = picture;
+	}
+
+	public IdentityType getIdentityType() {
+		return identityType;
+	}
+
+	public void setIdentityType(IdentityType identityType) {
+		this.identityType = identityType;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+
+}

@@ -1,0 +1,191 @@
+package com.jumploo.cms.db;
+
+import com.jumploo.test.mongo1.MongoDBInterface;
+
+
+
+public class DBConfig 
+{
+	public static MongoDBInterface mongoPorcess = null;
+	
+	public final static String DB_SCHDB_NAME   = "schdb";
+	public final static String DB_BASIC_NAME   = "basic";	
+	public final static String DB_KEY_NAME	   = "keydb";
+	public final static String DB_PROJCT_NAME  = "projectdb";
+	public final static String DB_PROJCTDEL_NAME = "projectdeldb";
+	public final static String DB_KEYDEL_NAME  = "keydeldb";
+	
+	public final static String DB_CONDION_AND  = "$and";
+	public final static String DB_CONDION_SET  = "$set";
+	
+	public final static String STR_IID						= "iid";
+	public final static String MONGDB_IID          			= "_id";			//ID
+	
+	public static final int DEFAULT_PAGENUM					= 10000;
+	
+	//英文字母
+	public final static String STR_A	= "a";
+	public final static String STR_B	= "b";	
+	public final static String STR_C	= "c";	
+	public final static String STR_D	= "d";	
+	public final static String STR_E	= "e";	
+	public final static String STR_F	= "f";	
+	public final static String STR_G	= "g";	
+	public final static String STR_H	= "h";	
+	public final static String STR_I	= "i";	
+	public final static String STR_J	= "j";	
+	public final static String STR_K	= "k";	
+	public final static String STR_L	= "l";	
+	public final static String STR_M	= "m";	
+	public final static String STR_N	= "n";	
+	public final static String STR_O	= "o";	
+	public final static String STR_P	= "p";	
+	public final static String STR_Q	= "q";	
+	public final static String STR_R	= "r";	
+	public final static String STR_S	= "s";	
+	public final static String STR_T	= "t";	
+	public final static String STR_U	= "u";	
+	public final static String STR_V	= "v";	
+	public final static String STR_W	= "w";	
+	public final static String STR_X	= "x";	
+	public final static String STR_Y	= "y";	
+	public final static String STR_Z	= "z";	
+	
+	/**
+	 * 产品ID：a		int
+	 * app名称：b		String
+	 * app类型：c		int
+	 * 关于：d		String
+	 * 发布对象名称：e	String
+	 * 最后发布时间：f	long
+	 * 
+	 */
+	public final static String TAB_APP_INFO	= "appinfo";
+	
+	// Task表
+	public final static String TAB_TASK_INFO = "task";
+	public final static String Task_ID = "_id";
+	public final static String Task_A = "a"; // 发布者
+	public final static String Task_B = "b"; // 任务描述
+	public final static String Task_C = "c"; // 任务具体类型
+	public final static String Task_D = "d"; // 任务发布时间
+	public final static String Task_E = "e"; // 任务有效时长
+	public final static String Task_F = "f"; // 任务位置
+	public final static String Task_G = "g"; // 精确位置，经纬度
+	public final static String Task_H = "h"; // 任务状态
+	public final static String Task_I = "i"; // 内容发送 1：普通文字2：web发布
+	public final static String Task_J = "j";//纬度
+	public final static String Task_K = "k";//经度
+	
+	// Applyer表
+	public final static String TAB_APPLYER_INFO = "applyer";
+	public final static String Applyer_ID = "_id";
+	public final static String Applyer_A = "a"; // 申请者
+	public final static String Applyer_B = "b"; // 被申请的任务
+	public final static String Applyer_C = "c"; // 申请时间
+	public final static String Applyer_D = "d"; // 状态
+
+	// Solution表
+	public final static String TAB_SOLUTION_INFO = "solution";
+	public final static String Solution_ID = "_id";
+	public final static String Solution_A = "a"; // 解决者
+	public final static String Solution_B = "b"; // 被解决的任务
+	public final static String Solution_C = "c"; // 解决时间
+	public final static String Solution_D = "d"; // 状态
+
+	// Invite表
+	public final static String TAB_INVITE_INFO = "invite";
+	public final static String Invite_ID = "_id";
+	public final static String Invite_A = "a"; // 邀请者
+	public final static String Invite_B = "b"; // 被邀请者
+	public final static String Invite_C = "c"; // 被邀请的任务
+	public final static String Invite_D = "d"; // 邀请时间
+	public final static String Invite_E = "e"; // 状态
+
+	// Interest表
+	public final static String TAB_INTEREST_INFO = "interest";
+	public final static String Interest_ID = "_id";
+	public final static String Interest_A = "a"; // 关注者
+	public final static String Interest = "b"; // 被关注的任务
+	public final static String Interest_C = "c"; // 关注时间
+	public final static String Interest_D = "d"; // 状态
+
+	// User表
+	public final static String TAB_USER_INFO = "user";
+	public final static String User_ID = "_id";
+	public final static String User_A = "a"; // 昵称
+	public final static String User_B = "b"; // 经历（个人描述）
+	public final static String User_C = "c"; // 个人简历
+	public final static String User_D = "d"; // 头像
+	public final static String User_E = "e"; // 身份类别
+	public final static String User_F = "f"; // 技能ID数组
+	public final static String User_G = "g"; // 性别
+
+	// Reward表
+	public final static String TAB_REWARD_INFO = "reward";
+	public final static String Reward_ID = "_id";
+	public final static String Reward_A = "a"; // 奖励描述
+	public final static String Reward_B = "b"; // 被引用次数
+	public final static String Reward_C = "c"; // 创建时间
+	public final static String Reward_D = "d"; // 奖励类型
+
+	// Picture表
+	public final static String TAB_PICTURE_INFO = "picture";
+	public final static String Picture_ID = "_id";
+	public final static String Picture_A = "a"; // 文件名
+	public final static String Picture_B = "b"; // URL
+	public final static String Picture_C = "c"; // 图片相关业务类型，存放在SysDefine中
+	public final static String Picture_D = "d"; // 根据serviceTypeId来找到相关实体
+
+	// DicTaskType表
+	public final static String TAB_DIC_TASK_TYPE_INFO = "dictasktype";
+	public final static String DicTaskType_ID = "_id";
+	public final static String DicTaskType_A = "a"; // 类型名
+
+	// IdentityType表
+	public final static String TAB_IDENTITY_TYPE_INFO = "identitytype";
+	public final static String IdentityType_ID = "_id";
+	public final static String IdentityType_A = "a"; // 类型名
+
+	// SchoolType表
+	public final static String TAB_SCHOOL_TYPE_INFO = "schooltype";
+	public final static String SchoolType_ID = "_id";
+	public final static String SchoolType_A = "a"; // 类型名
+
+	// Student表
+	public final static String TAB_STUDENT_INFO = "student";
+	public final static String Student_ID = "_id";
+	public final static String Student_A = "a"; // 对应用户
+	public final static String Student_B = "b"; // 专业
+	public final static String Student_C = "c"; // 学校
+	public final static String Student_D = "d"; // 学历
+
+	// RewardType表
+	public final static String TAB_REWARD_TYPE_INFO = "rewardtype";
+	public final static String RewardType_ID = "_id";
+	public final static String RewardType_A = "a"; // 类型名
+
+	// Major表
+	public final static String TAB_MAJOR_INFO = "major";
+	public final static String Major_ID = "_id";
+	public final static String Major_A = "a"; // 类型名
+	public final static String Major_B = "b"; // 一级科目
+
+	// FirstClassSubject表
+	public final static String TAB_FIRST_CLASS_SUBJECT_INFO = "firstclasssubject";
+	public final static String FirstClassSubject_ID = "_id";
+	public final static String FirstClassSubject_A = "a"; // 类型名
+
+	// School表
+	public final static String TAB_SCHOOL_INFO = "school";
+	public final static String School_ID = "_id";
+	public final static String School_A = "a"; // 学校名
+	public final static String School_B = "b"; // 学校类型
+	public final static String School_C = "c"; // 学校地址
+
+	// Education表
+	public final static String TAB_EDUCATION_INFO = "education";
+	public final static String Education_ID = "_id";
+	public final static String Education_A = "a"; // 类型名
+
+}

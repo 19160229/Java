@@ -1,0 +1,68 @@
+/** 
+* 创建人：胡太 
+* 联系方式：hutaizn@foxmail.com 
+* 创建时间：2015/11/6
+* @version 
+*/
+package com.jumploo.cms.db.dao.impl;
+
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+import com.jumploo.cms.bean.IdentityType;
+import com.jumploo.cms.bean.Picture;
+import com.jumploo.cms.bean.User;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.db.DBConfig;
+import com.jumploo.cms.db.dao.IdentityTypeDao;
+import com.jumploo.cms.db.dao.PictureDao;
+import com.jumploo.cms.db.dao.UserDao;
+
+public class UserDaoImpl implements UserDao {
+	private static UserDao userDao = new UserDaoImpl();
+
+	public UserDaoImpl() {
+	}
+
+	static UserDao getUserDao() {
+		return userDao;
+	}
+
+	@Override
+	public User findUserByID(String userID) {
+		Document doc = null;
+		try {
+			doc = SysDefine.mongoPorcess4.queryOne(DBConfig.TAB_USER_INFO, DBConfig.MONGDB_IID, new ObjectId(userID));
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		if (doc == null) {
+			return null;
+		}
+		User user = new User();
+		user.setId(userID);
+		user.setNickName(doc.getString(DBConfig.User_A));
+		user.setDescription(doc.getString(DBConfig.User_B));
+		user.setBrief(doc.getString(DBConfig.User_C));
+
+		String pictureID = doc.getString(DBConfig.User_D);
+		if (pictureID != null) {
+			PictureDao pictureDao = DaoManager.getPictureDao();
+			Picture picture = pictureDao.getPictureByID(pictureID);
+			user.setPicture(picture);
+		}
+
+		String identityTypeID = doc.getString(DBConfig.User_E);
+		if (identityTypeID != null) {
+			IdentityTypeDao identityTypeDao = DaoManager.getIdentityTypeDao();
+			IdentityType identityType = identityTypeDao.getIdentityTypeByID(identityTypeID);
+			user.setIdentityType(identityType);
+		}
+		int gender = doc.getInteger(DBConfig.User_G);
+		user.setGender(gender);
+
+		return user;
+	}
+
+}

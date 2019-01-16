@@ -1,0 +1,23 @@
+package com.jumploo.cms.db.dao.impl;
+
+import com.jumploo.cms.bean.IdentityType;
+import com.jumploo.cms.db.dao.IdentityTypeDao;
+import com.jumploo.cms.db.dao.PictureDao;
+
+public class IdentityTypeDaoImpl implements IdentityTypeDao {
+	private static IdentityTypeDao identityTypeDao = new IdentityTypeDaoImpl();
+	public IdentityTypeDaoImpl()
+	{
+	}
+	static IdentityTypeDao getIdentityTypeDao()
+	{
+		return identityTypeDao;
+	}
+	
+	@Override
+	public IdentityType getIdentityTypeByID(String identityTypeID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

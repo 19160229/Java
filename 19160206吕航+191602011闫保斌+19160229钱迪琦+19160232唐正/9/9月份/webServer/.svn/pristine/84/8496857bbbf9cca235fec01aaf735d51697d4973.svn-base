@@ -1,0 +1,112 @@
+package com.jumploo.cms.bean;
+
+import java.util.Date;
+
+public class Task {
+	private String id;
+	private User publisher;
+	private String description;
+	private DicTaskType taskType;
+	private Date createTime;
+	private int timeLength;
+	private String address;
+	private LatLon preciseLocation;
+	private int state;
+	private int contentPost;
+
+	public Task(String id, User publisher, String description, DicTaskType taskType, Date createTime, int timeLength,
+			String address, LatLon preciseLocation, int state, int contentPost) {
+		super();
+		this.id = id;
+		this.publisher = publisher;
+		this.description = description;
+		this.taskType = taskType;
+		this.createTime = createTime;
+		this.timeLength = timeLength;
+		this.address = address;
+		this.preciseLocation = preciseLocation;
+		this.state = state;
+		this.contentPost = contentPost;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public User getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(User publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public DicTaskType getTaskType() {
+		return taskType;
+	}
+
+	public void setTaskType(DicTaskType taskType) {
+		this.taskType = taskType;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public int getTimeLength() {
+		return timeLength;
+	}
+
+	public void setTimeLength(int timeLength) {
+		this.timeLength = timeLength;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public LatLon getPreciseLocation() {
+		return preciseLocation;
+	}
+
+	public void setPreciseLocation(LatLon preciseLocation) {
+		this.preciseLocation = preciseLocation;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public int getContentPost() {
+		return contentPost;
+	}
+
+	public void setContentPost(int contentPost) {
+		this.contentPost = contentPost;
+	}
+
+}

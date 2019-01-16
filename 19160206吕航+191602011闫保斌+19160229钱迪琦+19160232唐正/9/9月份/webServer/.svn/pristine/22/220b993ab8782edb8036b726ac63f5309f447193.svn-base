@@ -1,0 +1,44 @@
+package com.jumploo.cms.db.dao.impl;
+
+import com.jumploo.cms.db.dao.AppDao;
+import com.jumploo.cms.db.dao.DicTaskTypeDao;
+import com.jumploo.cms.db.dao.IdentityTypeDao;
+import com.jumploo.cms.db.dao.PictureDao;
+import com.jumploo.cms.db.dao.TaskDao;
+import com.jumploo.cms.db.dao.UserDao;
+
+public final class DaoManager
+{
+	private final static AppDao appDao = AppDaoImpl.getAppDao();
+	private final static UserDao userDao = UserDaoImpl.getUserDao();
+	private final static DicTaskTypeDao dicTaskTypeDao = DicTaskTypeDaoImpl.getDicTaskTypeDao();
+	private final static TaskDao taskDao = TaskDaoImpl.getTaskDao();
+	private final static PictureDao pictureDao = PictureDaoImpl.getPictureDao();
+	private final static IdentityTypeDao identityTypeDao = IdentityTypeDaoImpl.getIdentityTypeDao();
+	
+	public final static AppDao getAppDao()
+	{
+		return appDao;
+	}
+	public final static UserDao getUserDao()
+	{
+		return userDao;
+	}
+	public final static DicTaskTypeDao getDicTaskTypeDao()
+	{
+		return dicTaskTypeDao;
+	}
+	public final static TaskDao getTaskDao()
+	{
+		return taskDao;
+	}
+	public final static PictureDao getPictureDao()
+	{
+		return pictureDao;
+	}
+	public final static IdentityTypeDao getIdentityTypeDao()
+	{
+		return identityTypeDao;
+	}
+	
+}

@@ -1,0 +1,28 @@
+package com.jumploo.cms.mgmt.task;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.mgmt.BasicProcess;
+import com.jumploo.cms.mgmt.InterationInterface;
+import com.jumploo.cms.thread.SyncProcess;
+
+public class TaskInfoFindMgmt extends BasicProcess implements InterationInterface {
+
+	@Override
+	public void action(CmdOperation cmdOperation, SyncProcess process) {
+		Task task = (Task)cmdOperation;
+		try {
+			taskServer.getTaskByMongoIid(task);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.debug(e);
+		}
+	}
+
+	@Override
+	public int process(Object obj) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

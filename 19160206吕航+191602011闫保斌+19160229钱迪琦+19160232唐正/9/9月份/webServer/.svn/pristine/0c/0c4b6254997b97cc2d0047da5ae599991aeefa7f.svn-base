@@ -1,0 +1,25 @@
+package com.jumploo.cms.mgmt.app;
+
+import java.util.List;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.mgmt.BasicProcess;
+import com.jumploo.cms.mgmt.InterationInterface;
+import com.jumploo.cms.thread.SyncProcess;
+
+public class AppInfoAddMgmt extends BasicProcess implements InterationInterface
+{
+
+	@Override
+	public int process(Object[] obj, List list) throws Exception
+	{
+		return 0;
+	}
+
+	@Override
+	public List action(CmdOperation cmdOperation, SyncProcess process) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.jumploo.cms.db.dao;
+
+import com.jumploo.cms.bean.AppInfo;
+
+public interface AppDao
+{
+	/**
+	 * 发布的所有app数量
+	 * @return
+	 */
+	public int releaseAppNum() throws Exception;
+	
+	/**
+	 * 添加app基础信息
+	 * @param appInfo
+	 * @return
+	 * @throws Exception
+	 */
+	public int addAppInfo(AppInfo appInfo) throws Exception;
+}

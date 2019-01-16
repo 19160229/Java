@@ -1,0 +1,28 @@
+package com.jumploo.cms.accetptcp;
+
+import org.apache.log4j.Logger;
+import org.apache.mina.core.session.IoSession;
+
+import com.jumploo.cms.accetptcp.client.ClinetProcessHandler;
+import com.jumploo.cms.log.LogManager;
+import com.jumploo.cms.accetptcp.util.ConvertUtil;
+import com.real.tcpserver.msg.simple.SimpleIoMessage;
+
+public class ClinetProcess implements ClinetProcessHandler 
+{
+	protected static final Logger runLog = LogManager.getLogManager().getRunLog();
+	@Override
+	public void reviceMsg(Object message, IoSession session) 
+	{
+		//SimpleIoMessage ioMessage = (SimpleIoMessage)message;
+		//��ʱ��ʵ��
+		runLog.debug("recive enterprise user push status..");
+		
+	}
+
+	@Override
+	public void sentMsg(Object message, IoSession session) 
+	{
+		
+	}
+}

@@ -1,0 +1,31 @@
+package com.jumploo.cms.db.server.impl;
+
+import com.jumploo.cms.db.server.AppServer;
+import com.jumploo.cms.db.server.DicTaskTypeServer;
+import com.jumploo.cms.db.server.TaskServer;
+import com.jumploo.cms.db.server.UserServer;
+
+public final class ServerManager
+{
+	private final static AppServer appServer = AppServerImpl.getServer();
+	private final static TaskServer taskServer = TaskServerImpl.getServer();
+	private final static UserServer userServer = UserServerImpl.getServer();
+	private final static DicTaskTypeServer dicTaskTypeServer = DicTaskTypeServerImpl.getServer();
+	
+	public final static AppServer getAppServer()
+	{
+		return appServer;
+	}
+	public final static TaskServer getTaskServer()
+	{
+		return taskServer;
+	}
+	public final static UserServer getUserServer()
+	{
+		return userServer;
+	}
+	public final static DicTaskTypeServer getDicTaskTypeServer()
+	{
+		return dicTaskTypeServer;
+	}
+}

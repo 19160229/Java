@@ -1,0 +1,168 @@
+/** 
+* 创建人：胡太 
+* 联系方式：hutaizn@foxmail.com 
+* 创建时间：2015/11/6
+* @version 
+*/ 
+package com.jumploo.cms.web.action.task;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.jessma.mvc.ActionSupport;
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.bean.DicTaskType;
+import com.jumploo.cms.bean.LatLon;
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.bean.User;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.db.dao.DicTaskTypeDao;
+import com.jumploo.cms.db.dao.TaskDao;
+import com.jumploo.cms.db.dao.UserDao;
+import com.jumploo.cms.db.dao.impl.DaoManager;
+import com.jumploo.cms.db.dao.impl.DicTaskTypeDaoImpl;
+import com.jumploo.cms.db.dao.impl.TaskDaoImpl;
+import com.jumploo.cms.db.dao.impl.UserDaoImpl;
+import com.jumploo.cms.web.action.BaseAction;
+
+public class AddTaskAction extends BaseAction {
+	
+	private String publisherID;
+	private String createTime;
+	private double latitude;
+	private double longitude;
+	private String description;
+	private String address;
+	private int timeLength;
+	private int taskTypeID;
+
+	@Override
+	public String execute() {
+		return "postTask";
+	}
+
+	@FormBean
+	public String toAddTask()
+	{
+		id="/WEB-INF/jsp/task/postTask.jsp";
+		return SUCCESS;
+	}
+	
+	@FormBean
+	public String addTask1(){
+		Task task = new Task();
+		//TODO 设置task中的值
+		task.setDescription(description);
+		taskInfoAddMgmt.action(task);
+		id="/WEB-INF/jsp/task/taskList.jsp";
+		return SUCCESS;
+	}
+	
+	@FormBean
+	public String addTask(){
+		Task task = new Task();
+		task.setAddress(address);
+		task.setContentPost(1);
+		try {
+			task.setCreateTime(SysDefine.timeTools.getCurrentSeconds());
+			task.setDescription(description);
+			task.setPreciseLocation(new LatLon(latitude, longitude));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			logger.debug(e);
+		}
+		
+		User publisher = DaoManager.getUserDao().findUserByID(publisherID);
+		task.setPublisher(publisher);
+		
+		task.setState(SysDefine.TaskRecieveReply);
+		
+		DicTaskType taskType = DaoManager.getDicTaskTypeDao().findDicTaskTypeByTypeId(taskTypeID);
+		task.setTaskType(taskType);
+		
+		task.setTimeLength(timeLength);
+		
+
+		try {
+			task = DaoManager.getTaskDao().addTask(task);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(task.getMongoid()!=null){
+
+			return "";
+		}else{
+
+			return "";
+		}
+		
+	}
+
+	public String getPublisherID() {
+		return publisherID;
+	}
+
+	public void setPublisherID(String publisherID) {
+		this.publisherID = publisherID;
+	}
+
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getTimeLength() {
+		return timeLength;
+	}
+
+	public void setTimeLength(int timeLength) {
+		this.timeLength = timeLength;
+	}
+
+	public int getTaskTypeID() {
+		return taskTypeID;
+	}
+
+	public void setTaskTypeID(int taskTypeID) {
+		this.taskTypeID = taskTypeID;
+	}
+	
+}

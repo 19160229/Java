@@ -1,0 +1,9 @@
+package com.jumploo.cms.db.server;
+
+import com.jumploo.cms.bean.Task;
+
+public interface TaskServer {
+
+	//根据mongoiid查询task
+	public int getTaskByMongoIid(Task task)throws Exception;
+}

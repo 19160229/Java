@@ -1,0 +1,103 @@
+package com.jumploo.cms.accetptcp.util.hbase;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.KeyValue;
+import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.util.Bytes;
+
+public class HbaseUtil 
+{
+	public Configuration configuration;
+	public HbaseUtil()
+	{
+		configuration = HBaseConfiguration.create();
+		configuration.set("hbase.zookeeper.property.clientPort", "1234");
+		configuration.set("hbase.zookeeper.quorum", "192.168.1.156");
+		configuration.set("hbase.master", "192.168.1.156:1234");
+	}
+	/**
+	 * @param tableName ������
+	 * @param key Ψһ��ʶ��
+	 * @param col �б�ʶ
+	 * @return
+	 */
+	public String QueryByCondition(String tableName,String key,String col) 
+	{
+
+		try
+		{
+			HTable table=new HTable(configuration, tableName);  
+			Get g = new Get(Bytes.toBytes(key));  
+			g.addFamily(col.getBytes());
+			Result r=table.get(g);  
+			if (null != r)
+			{
+				KeyValue kv=r.raw()[0];
+				return new String(kv.getValue());
+			}
+		}
+		catch(Exception ee)
+		{
+			System.out.println(ee.getLocalizedMessage());
+		}
+		return null;	        
+	}
+	
+	public String QueryByCondition1(String tableName,String key,String col,String qualifier) 
+	{
+
+		try
+		{
+			HTable table=new HTable(configuration, tableName);  
+			Get g = new Get(Bytes.toBytes(key));  
+//			g.addColumn(col.getBytes(), qualifier.getBytes());
+//			g.setTimeStamp(0L);
+			g.setTimeRange(0L, Long.MAX_VALUE);
+			Result r=table.get(g);  
+			if (null != r)
+			{
+				KeyValue kv=r.raw()[0];
+				for(KeyValue kv1 :r.raw())
+				{
+					System.out.println(kv1.getTimestamp());
+				}
+				return new String(kv.getValue());
+			}
+		}
+		catch(Exception ee)
+		{
+			System.out.println(ee);
+		}
+		return null;	        
+	}
+	
+	public KeyValue[] QueryByCondition2(String tableName,String key,String col) 
+	{
+
+		try
+		{
+			HTable table=new HTable(configuration, tableName);  
+			Get g = new Get(Bytes.toBytes(key)); 
+			g.addFamily(col.getBytes());
+			Result r=table.get(g);  
+			if (null != r)
+			{
+				return r.raw();
+			}
+		}
+		catch(Exception ee)
+		{
+			System.out.println(ee.getLocalizedMessage());
+		}
+		return null;	        
+	}
+	public static void main(String[] args)
+	{
+		HbaseUtil hbas = new HbaseUtil();
+		System.out.println(hbas.QueryByCondition1("enterpriseuser", "123", "iid","123"));
+//		System.out.println(hbas.QueryByCondition("enterapply", "12312", "url"));
+	}
+}

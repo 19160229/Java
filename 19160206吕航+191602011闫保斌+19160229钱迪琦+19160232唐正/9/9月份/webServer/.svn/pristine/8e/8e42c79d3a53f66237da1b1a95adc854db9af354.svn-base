@@ -1,0 +1,59 @@
+package com.jumploo.cms.bean;
+
+public class Picture {
+	private String id;
+	private String picName;
+	private String URL;
+	private int serviceTypeId;
+	private String fid;
+
+	public Picture(String id, String picName, String uRL, int serviceTypeId, String fid) {
+		super();
+		this.id = id;
+		this.picName = picName;
+		URL = uRL;
+		this.serviceTypeId = serviceTypeId;
+		this.fid = fid;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPicName() {
+		return picName;
+	}
+
+	public void setPicName(String picName) {
+		this.picName = picName;
+	}
+
+	public String getURL() {
+		return URL;
+	}
+
+	public void setURL(String uRL) {
+		URL = uRL;
+	}
+
+	public int getServiceTypeId() {
+		return serviceTypeId;
+	}
+
+	public void setServiceTypeId(int serviceTypeId) {
+		this.serviceTypeId = serviceTypeId;
+	}
+
+	public String getFid() {
+		return fid;
+	}
+
+	public void setFid(String fid) {
+		this.fid = fid;
+	}
+
+}

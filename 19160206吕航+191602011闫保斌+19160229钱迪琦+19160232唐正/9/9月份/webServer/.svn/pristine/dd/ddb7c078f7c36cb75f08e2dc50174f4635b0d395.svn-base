@@ -1,0 +1,29 @@
+/** 
+* 创建人：胡太 
+* 联系方式：hutaizn@foxmail.com 
+* 创建时间：2015/11/6
+* @version 
+*/ 
+package com.jumploo.cms.db.dao.impl;
+
+import com.jumploo.cms.bean.DicTaskType;
+import com.jumploo.cms.db.dao.DicTaskTypeDao;
+import com.jumploo.cms.db.dao.UserDao;
+
+public class DicTaskTypeDaoImpl implements DicTaskTypeDao {
+	private static DicTaskTypeDao dicTaskTypeDao = new DicTaskTypeDaoImpl();
+	public DicTaskTypeDaoImpl()
+	{
+	}
+	static DicTaskTypeDao getDicTaskTypeDao()
+	{
+		return dicTaskTypeDao;
+	}
+	
+	@Override
+	public DicTaskType findDicTaskTypeByTypeId(int typeID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

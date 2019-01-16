@@ -1,0 +1,16 @@
+package com.jumploo.cms.db.server;
+
+import java.util.List;
+
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.util.Page;
+
+public interface TaskServer {
+
+	//添加任务 
+	public Task addTask(Task task) throws Exception;
+	//根据mongoiid查询task
+	public int getTaskByMongoIid(Task task)throws Exception;
+	//根据时间获取tasklist
+	public int getTaskListByTime(List<Task> taskList, long time, Page page) throws Exception;
+}

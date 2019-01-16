@@ -1,0 +1,12 @@
+package com.jumploo.cms.db;
+
+import com.jumploo.cms.db.server.AppServer;
+import com.jumploo.cms.db.server.impl.ServerManager;
+
+public final class DBManager
+{
+	public final static AppServer getAppServer()
+	{
+		return ServerManager.getAppServer();
+	}
+}

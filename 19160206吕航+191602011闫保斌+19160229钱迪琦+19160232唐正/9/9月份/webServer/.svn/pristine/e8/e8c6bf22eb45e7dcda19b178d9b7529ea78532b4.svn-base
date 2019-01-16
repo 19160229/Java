@@ -1,0 +1,19 @@
+package com.jumploo.cms.mgmt;
+
+import org.apache.log4j.Logger;
+
+import com.jumploo.cms.accetptcp.util.hbase.HbaseUtil;
+import com.jumploo.cms.log.LogManager;
+
+import net.sf.json.JSONObject;
+
+public abstract class BasicProcess
+{
+	protected static HbaseUtil hbaseUtil = new HbaseUtil();
+	protected static final String ENTERPRISE_HBASE_APPLY = "enterapply"; 
+	protected static final String ENTERPRISE_HBASE_USER = "enterpriseuser";
+	protected static Logger runLog = LogManager.getLogManager().getRunLog();
+	public abstract String process(JSONObject jsonObject,String key);
+	public abstract int process(Object obj) throws Exception;
+//	protected static AppDao appDao = new AppDaoImpl();
+}

@@ -1,0 +1,17 @@
+package com.jumploo.cms.thread;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jumploo.cms.bean.Task;
+
+//用于初始化服务器所需要使用的对象
+public class SyncProcess extends Thread{
+	
+	public List<Task> taskList = new ArrayList<Task>();
+
+	public List<Task> getTaskList()
+	{
+		return taskList;
+	}
+}

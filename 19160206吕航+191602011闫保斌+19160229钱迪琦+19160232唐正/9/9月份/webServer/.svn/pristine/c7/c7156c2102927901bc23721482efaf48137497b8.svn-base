@@ -1,0 +1,209 @@
+package com.jumploo.cms.accetptcp.util;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ConvertUtil
+{
+	private static int TRANID = 0;
+	private static String ymd = "yyyyMMdd";
+	private static String ymdhms = "yyyyMMddHHmmss";
+	private static String hms = "yyyy-MM-dd HH:mm:ss";
+	private static SimpleDateFormat formatYMD;
+	private static SimpleDateFormat formatYMDhms;
+	private static SimpleDateFormat formathms;
+	private static String pic = null;
+	static
+	{
+		formatYMD = new SimpleDateFormat(ymd);
+		formatYMDhms = new SimpleDateFormat(ymdhms);
+		formathms = new SimpleDateFormat(hms);
+		//ͼƬ�ļ�
+		pic = formatYMD.format(new Date());
+	}
+
+	public static Date string2DateYMDHMS(String str)
+	{
+		try
+		{
+			return formatYMDhms.parse(str);
+		}
+		catch(Exception ee)
+		{
+			try
+			{
+				return formatYMDhms.parse("20120501000000");
+			}
+			catch(ParseException e)
+			{
+				return null;
+			}
+		}
+
+	}
+
+	public static String date2StringYMD(Date date)
+	{
+		try
+		{
+
+			return formatYMD.format(date);
+		}
+		catch(Exception ee)
+		{
+
+		}
+		return null;
+	}
+	public static String date2StringYMDHMS(Date date)
+	{
+		try
+		{
+
+			return formatYMDhms.format(date);
+		}
+		catch(Exception ee)
+		{
+
+		}
+		return null;
+	}
+	public static String date2StringHms(Date date)
+	{
+		try
+		{
+
+			return formathms.format(date);
+		}
+		catch(Exception ee)
+		{
+
+		}
+		return null;
+	}
+
+	public static int parseInt(String str)
+	{
+		return parseInt(str, 0);
+	}
+
+	public static int parseInt(String str, int defaultValue)
+	{
+		int num;
+		if (null == str)
+		{
+			return defaultValue;
+		}
+		try
+		{
+			num = Integer.parseInt(str);
+		}
+		catch(Exception e)
+		{
+			num = defaultValue;
+		}
+
+		return num;
+	}
+
+	public static long parseLong(String str)
+	{
+		return parseLong(str, 0L);
+	}
+	public static String toString(Object str)
+	{
+		try
+		{
+			if (null != str)
+			{
+				return String.valueOf(str);
+			}
+			
+		}
+		catch (Exception ee)
+		{
+			return "";
+		}
+		
+		return "";
+	}
+
+	public static long parseLong(String str, long defaultValue)
+	{
+		long num;
+		try
+		{
+			num = Long.parseLong(str);
+		}
+		catch(Exception e)
+		{
+			num = defaultValue;
+		}
+
+		return num;
+	}
+
+	/**
+	 * yyyy-mm-dd hh:MM:SS
+	 * @param str
+	 * @return
+	 */
+	public static String getLocatTime(String str)
+	{
+		DateFormat df = new SimpleDateFormat(str);
+		return df.format(new Date());
+	}
+
+	public static String strinTOparseStr(String str)
+	{
+		if (null == str)
+		{
+			return "";
+		}
+		str = str.replace("-", "");
+		str = str.replace(":", "");
+		str = str.replace(" ", "");
+		StringBuffer rep = new StringBuffer(str);
+		for (int i = rep.length(); i < 14; i++)
+		{
+			rep.append("0");
+		}
+		return rep.toString();
+	}
+	
+	
+	/**
+	 * ����Ƿ���ȫ����
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNumeric(String str) 
+	{
+		for (int i = str.length(); --i >= 0;) 
+		{
+			if (!Character.isDigit(str.charAt(i))) 
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	public static String checkNull(String str)
+	{
+		if (null == str || str.trim().equals(","))
+		{
+			return "";
+		}
+		return str;
+	}
+	public static int randomInt()
+	{
+		return (int)(Math.random() * 10000000);
+	}
+	public static void main(String[] args)
+	{
+		System.out.println(strinTOparseStr("2012-06-01 10:28"));
+	}
+}

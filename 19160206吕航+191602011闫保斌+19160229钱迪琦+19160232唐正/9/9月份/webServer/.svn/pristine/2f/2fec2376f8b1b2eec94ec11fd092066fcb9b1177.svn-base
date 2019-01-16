@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<db>
+		<address>120.26.114.89:27017</address>
+	</db>
+</root>

@@ -1,0 +1,7 @@
+package com.jumploo.cms.db.dao;
+
+import com.jumploo.cms.bean.IdentityType;
+
+public interface IdentityTypeDao {
+	IdentityType getIdentityTypeByID(String identityTypeID);
+}

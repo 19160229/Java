@@ -1,0 +1,30 @@
+\u9518?### set log levels:FATAL ERROR WARN INFO DEBUG ##stdout,
+log4j.rootLogger = DEBUG,stdout,logfile
+
+### cosole System.out info ###
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n
+log4j.appender.stdout.Threshold=ERROR 
+
+#log4j.appender.stdout.ImmediateFlush=true 
+#log4j.appender.stdout.Target=System.out 
+
+### log write file ###
+log4j.appender.logfile = org.apache.log4j.DailyRollingFileAppender
+#log4j.appender.logfile = org.apache.log4j.RollingFileAppender
+#log4j.appender.logfile.MaxFileSize=1KB 
+#dir default tomcat.exe dir,../=last level
+log4j.appender.logfile.File = F\:\\cs\\yyyy-MM-dd-HH-mm.log
+#log4j.appender.R.DatePattern='.'yyyy-MM-dd-HH-mm
+#log4j.appender.A3.DatePattern='.'yyyy-MM-dd.log
+#\u59E3\u5FCE\u91DC\u93C2\u56E6\u6B22\u6FB6\u0443\u76AC
+#log4j.appender.file.MaxFileSize=512KB
+
+#\u93C3\u30E5\u7E54\u93C2\u56E6\u6B22\u6D93\u5A47\u6ABA\u6D93\uE045\u669F
+#log4j.appender.file.MaxBackupIndex=5
+
+log4j.appender.logfile.DatePattern = .yyyy-MM-dd
+log4j.appender.logfile.layout = org.apache.log4j.PatternLayout
+log4j.appender.logfile.layout.ConversionPattern=%-d{yyyy-MM-dd HH\:mm\:ss}  [ %t\:%r ] - [ %p ]  %m%n
+log4j.appender.logfile.Threshold =DEBUG 

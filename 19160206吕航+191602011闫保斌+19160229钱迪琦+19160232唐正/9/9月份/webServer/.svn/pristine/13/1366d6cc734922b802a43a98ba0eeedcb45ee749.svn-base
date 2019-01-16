@@ -1,0 +1,21 @@
+package com.jumploo.cms.tcp;
+
+import org.apache.mina.core.session.IoSession;
+
+/**
+ * �ͻ��˴���handle
+ * @author Administrator
+ */
+public interface ClinetProcessHandler
+{
+	/**
+	 * �յ���Ϣ�󣬽��յ�����Ϣֱ�Ӹ���
+	 * @param message
+	 */
+	public void reviceMsg(Object message,IoSession session);
+	/**
+	 * ������Ϣ����
+	 * @param message
+	 */
+	public void sentMsg(Object message,IoSession session);
+}

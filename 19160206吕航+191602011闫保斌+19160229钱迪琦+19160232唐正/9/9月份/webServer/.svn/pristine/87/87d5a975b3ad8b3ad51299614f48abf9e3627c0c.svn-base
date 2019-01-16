@@ -1,0 +1,13 @@
+package com.jumploo.cms.db.server;
+
+import com.jumploo.cms.bean.DicTaskType;
+
+public interface DicTaskTypeServer {
+	/**
+	 * 根据类型ID获得指定类型的实体
+	 * @param typeID
+	 * @return
+	 * @throws Exception
+	 */
+	public DicTaskType findDicTaskTypeByTypeId(int typeID) throws Exception;
+}

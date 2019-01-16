@@ -1,0 +1,61 @@
+package com.jumploo.cms.bean;
+
+import java.util.Date;
+
+public class Reward {
+	private String id;
+	private String name;
+	private int refTimes;
+	private Date createTime;
+	private RewardType rewardType;
+
+	public Reward(String id, String name, int refTimes, Date createTime, RewardType rewardType) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.refTimes = refTimes;
+		this.createTime = createTime;
+		this.rewardType = rewardType;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getRefTimes() {
+		return refTimes;
+	}
+
+	public void setRefTimes(int refTimes) {
+		this.refTimes = refTimes;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public RewardType getRewardType() {
+		return rewardType;
+	}
+
+	public void setRewardType(RewardType rewardType) {
+		this.rewardType = rewardType;
+	}
+
+}

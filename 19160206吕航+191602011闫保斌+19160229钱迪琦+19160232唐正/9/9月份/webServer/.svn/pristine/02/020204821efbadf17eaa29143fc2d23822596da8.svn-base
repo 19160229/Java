@@ -1,0 +1,100 @@
+package com.jumploo.cms.bean;
+
+/**
+ * @author aa
+ * APP基本信息
+ */
+public class AppInfo extends CmdOperation
+{
+	/**
+	 * 产品ID
+	 */
+	private int proId;
+	
+	/**
+	 * APP名称
+	 */
+	private String appName;
+	
+	/**
+	 * APP类型
+	 * 1：企业
+	 * 2：个人
+	 */
+	private int appType;
+	
+	/**
+	 * 关于
+	 */
+	private String about;
+
+	/**
+	 * 发布对象名称
+	 */
+	private String companyName;
+	/**
+	 * 最后发布时间
+	 */
+	private long timeInfo;
+	
+	public String getCompanyName()
+	{
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName)
+	{
+		this.companyName = companyName;
+	}
+
+	public long getTimeInfo()
+	{
+		return timeInfo;
+	}
+
+	public void setTimeInfo(long timeInfo)
+	{
+		this.timeInfo = timeInfo;
+	}
+
+	public int getProId() 
+	{
+		return proId;
+	}
+
+	public void setProId(int proId) 
+	{
+		this.proId = proId;
+	}
+
+	public String getAppName() 
+	{
+		return appName;
+	}
+
+	public void setAppName(String appName)
+	{
+		this.appName = appName;
+	}
+
+	public int getAppType()
+	{
+		return appType;
+	}
+
+	public void setAppType(int appType)
+	{
+		this.appType = appType;
+	}
+
+	public String getAbout() 
+	{
+		return about;
+	}
+
+	public void setAbout(String about)
+	{
+		this.about = about;
+	}
+
+}

@@ -1,0 +1,54 @@
+package test;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
+public class urlTest {
+
+	public static void main(String []args)
+	{
+		checkHttpServer("https://www.baidu.com");
+	}
+	private static boolean checkHttpServer(String httpUlr)
+	{
+		java.net.URL l_url = null;
+		java.net.HttpURLConnection l_connection = null;
+		BufferedReader l_reader = null;
+		InputStream l_urlStream = null;
+
+		try
+		{			
+			l_url = new java.net.URL(httpUlr);
+			l_connection = (java.net.HttpURLConnection) l_url.openConnection();
+			//������Ϣͷ start 
+			l_connection.setDoInput(true);
+			l_connection.setDoOutput(true);
+			l_connection.setUseCaches(false);
+			l_connection.setRequestMethod("POST");
+			l_connection.setRequestProperty("User-Agent", "Mozilla/4.7 (ShowSky)");
+			l_connection.setRequestProperty("content-type", "text/xml;charset=UTF-8");
+			int code = l_connection.getResponseCode();
+			String ans = l_connection.getResponseMessage();
+			InputStream in = new BufferedInputStream(l_connection.getInputStream());
+			Reader rd = new InputStreamReader(in, "UTF-8");
+			StringBuffer temp = new StringBuffer();
+			int c = 0;
+			while ((c = rd.read()) != -1) {
+				temp.append((char) c);
+			}
+			System.out.println(temp.toString());
+			if (code != 200)
+			{
+				return false;
+			}
+		}
+		catch(Exception ee)
+		{
+			return false;
+		}
+		return true;
+	}
+}

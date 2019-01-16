@@ -1,0 +1,31 @@
+package com.jumploo.cms.mgmt;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.mgmt.app.AppInfoAddMgmt;
+import com.jumploo.cms.thread.SyncProcess;
+
+public class MgmtProcess implements InterationInterface {
+
+	private static InterationInterface appInfoAddMgmt = new AppInfoAddMgmt();
+	@Override
+	public void action(CmdOperation cmdOperation, SyncProcess process) {
+		// TODO Auto-generated method stub
+		
+		
+		InterationInterface tmp = null;
+		switch(cmdOperation.getCmdType())
+		{
+		case SysDefine.ADD_APPINFO:
+			tmp = appInfoAddMgmt;
+			break;
+		default:
+			break;
+		}
+		if(null != tmp)
+		{
+			tmp.action(cmdOperation, process);
+		}
+	}
+
+}

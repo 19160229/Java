@@ -1,0 +1,52 @@
+package com.jumploo.cms.web.action.app;
+
+import java.util.ArrayList;
+
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.bean.AppInfo;
+import com.jumploo.cms.web.action.BaseAction;
+
+@FormBean
+public class AppListAction extends BaseAction
+{
+	private String url;
+	
+	public String queryList() throws Exception
+	{
+		dataProcess();
+		id = "/WEB-INF/jsp/buss/app/appList.jsp";
+		return SUCCESS;
+	}
+	public String queryListAjax() throws Exception
+	{
+		dataProcess();
+		getResponse().setContentType("text/html;charset=UTF-8");
+		getResponse().getWriter().print(objectMapper.writeValueAsString(list));
+		return NONE;
+	}
+	private void dataProcess()
+	{
+		list = new ArrayList<AppInfo>();
+		totalPage = 10;
+		for(int i=0;i<10;i++)
+		{
+			AppInfo app = new AppInfo();
+			app.setAppName("add"+index);
+			app.setAppType(1);
+			app.setProId(i);
+			app.setTimeInfo(System.currentTimeMillis());
+			app.setCompanyName("测试企业");
+			list.add(app);
+		}
+	}
+	public String getUrl()
+	{
+		return url;
+	}
+	public void setUrl(String url)
+	{
+		this.url = url;
+	}
+	
+}

@@ -1,0 +1,7 @@
+package com.jumploo.cms.db.dao;
+
+import com.jumploo.cms.bean.Picture;
+
+public interface PictureDao {
+	Picture getPictureByID(String pictureID);
+}

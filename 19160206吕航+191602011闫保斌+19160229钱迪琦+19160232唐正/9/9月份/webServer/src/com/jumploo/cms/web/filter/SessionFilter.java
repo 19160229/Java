@@ -1,0 +1,101 @@
+package com.jumploo.cms.web.filter;
+
+import java.io.IOException;
+import java.util.HashSet;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.jumploo.cms.conf.SysDefine;
+
+
+public class SessionFilter implements Filter 
+{
+	final static Logger logger = Logger.getLogger(SessionFilter.class.getName());
+	private HashSet passUrl;
+	public void init(FilterConfig config) throws ServletException 
+	{
+		this.passUrl = new HashSet();
+		String excludedUrl = config.getInitParameter("logonStrings");
+		String[] urlList = excludedUrl.split(";");
+		for (int i = 0; (urlList != null) && (i < urlList.length); ++i) 
+		{
+			if (urlList[i].endsWith("*")) 
+			{
+				urlList[i] = urlList[i].substring(0, urlList[i].length() - 2);
+			}
+
+			if (urlList[i].startsWith("*")) 
+			{
+				if (urlList[i].startsWith("*/*")) 
+				{
+					urlList[i] = urlList[i].substring(urlList[i]
+							.lastIndexOf("."));
+				} 
+				else 
+				{
+					urlList[i] = urlList[i].substring(urlList[i]
+							.lastIndexOf("/"));
+				}
+			}
+			this.passUrl.add(urlList[i]);
+		}
+	}
+
+	public void doFilter(ServletRequest request, ServletResponse response, 
+			FilterChain chain) throws IOException, ServletException
+	{
+		chain.doFilter(request, response);
+/*		if(checkVaildaty(request, response))
+		{
+			chain.doFilter(request, response);
+		}*/
+	}
+	private boolean checkVaildaty(ServletRequest request, 
+			ServletResponse response) throws IOException
+	{
+		HttpServletRequest req =(HttpServletRequest) request;
+		String ip = req.getHeader("X-Real-IP");
+		if (null != ip)
+		{
+			Object obj = SysDefine.ipFilter.get(ip);
+			//不是合法IP
+			if (null == obj)
+			{
+				return false;
+			}
+		}
+		Object sesObj = req.getSession().getAttribute(SysDefine.SESSION_USER_ID);
+		//如果session不存在
+		if (null == sesObj)
+		{
+			//判断当前URL是否是合法的URL
+			String uri = req.getRequestURI();
+			if (this.passUrl.contains(uri)) 
+			{
+				return true;
+			}
+			else
+			{
+				HttpServletResponse wrapper =(HttpServletResponse) response;
+				String redirectPath = req.getContextPath() + "cmsAuth.action";
+				wrapper.sendRedirect(redirectPath);
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public void destroy() 
+	{
+
+	}
+}

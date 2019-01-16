@@ -1,0 +1,123 @@
+package com.jumploo.cms.mgmt.push;
+
+import java.io.IOException;
+
+import net.sf.json.JSONObject;
+
+import org.apache.hadoop.hbase.KeyValue;
+
+import com.jumploo.cms.accetptcp.util.ConvertUtil;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.mgmt.BasicProcess;
+import com.real.tcpserver.msg.simple.SimpleIoMessage;
+
+public class ServicePushMsg extends BasicProcess 
+{
+	@Override
+	public String process(JSONObject jsonObject,String key) 
+	{
+		try
+		{
+			
+			String sendMsg = jsonObject.getString("send_msg");
+			Object obj = jsonObject.get("uid");
+			String eid = hbaseUtil.QueryByCondition(ENTERPRISE_HBASE_APPLY, key, "eid");
+			if (null == eid)
+			{
+				return null;
+			}
+			//��������
+			if (null != obj)
+			{
+				pushUser(obj, sendMsg,eid);
+				return null;
+			}
+			//����ҵ����
+			//��ѯ��ǰ��ҵID
+			pushEnterPrise(eid,sendMsg);
+		}
+		catch(Exception ee)
+		{
+			runLog.error("",ee);
+		}
+		return null;
+	}
+	/**
+	 * ���͸�ָ���û�
+	 * @param obj
+	 * @param sendMsg
+	 * @param eid
+	 * @throws IOException
+	 */
+	private void pushUser(Object obj,String sendMsg,String eid) throws Exception
+	{
+		String usList = obj.toString();
+		String[] uid = usList.split(",");
+		int len = uid.length;
+		SimpleIoMessage ioMessage1 = buildIoMessage(1,0x90, 0, 0xFF);
+		ioMessage1.setBody(getStr(sendMsg,eid));
+		for (int i = 0;i< len;i++)
+		{
+			//String xx = hbaseUtil.QueryByCondition1(ENTERPRISE_HBASE_USER, eid, "iid",uid[i]);
+			String xx = uid[i];
+			if (!ConvertUtil.isNumeric(xx))
+			{
+				runLog.debug("push user query user ["+xx+"]");
+				return;
+			}
+			ioMessage1.setUserId(ConvertUtil.parseInt(xx));
+			//push
+			SysDefine.tcpClinet.send(ioMessage1);
+		}
+		
+	}
+	private String getStr(String sendMsg,String eid)
+	{
+		StringBuffer sb = new StringBuffer(1400);
+		sb.append("<rt>")
+		.append("<aid>").append(eid).append("</aid>")
+		.append("<msg><![CDATA[").append(sendMsg).append("]]></msg>")
+		.append("</rt>");
+		return sb.toString();
+	}
+	/**
+	 * ���͸���ҵȫ���û�
+	 * @param eid
+	 * @param sendMsg
+	 * @throws Exception
+	 */
+	private void pushEnterPrise(String eid,String sendMsg) throws Exception
+	{
+		KeyValue[] keyVlue = hbaseUtil.QueryByCondition2(ENTERPRISE_HBASE_USER, eid, "iid");
+		SimpleIoMessage ioMessage1 = buildIoMessage(1,0x90, 0, 0xFF);
+		ioMessage1.setBody(getStr(sendMsg,eid));
+		for(KeyValue kv:keyVlue)
+		{  
+			String xx = new String(kv.getValue());
+			runLog.debug("all enter prise query user ["+xx+"]");
+			ioMessage1.setUserId(ConvertUtil.parseInt(xx));
+			//PUSH
+			SysDefine.tcpClinet.send(ioMessage1);
+		}
+	}
+	private SimpleIoMessage buildIoMessage(int cmd,int mid,int userId,int status)
+	{
+//		final ioMessage1
+		final SimpleIoMessage ioMessage = new SimpleIoMessage();
+		ioMessage.setCmdType(cmd);
+		ioMessage.setModuleId(mid);
+		ioMessage.setSeq(11);
+		ioMessage.setStatus(status);
+		ioMessage.setUserId(userId);
+//		ioMessage.setDataType((byte)0);
+//		ioMessage.setPackageVersion((byte)1);
+//		ioMessage.setPackFlag((byte)1);
+//		
+		return ioMessage;
+	}
+	@Override
+	public int process(Object obj) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

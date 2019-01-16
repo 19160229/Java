@@ -1,0 +1,12 @@
+package com.jumploo.cms.web.action.login;
+
+import com.jumploo.cms.web.action.BaseAction;
+
+public class AuthAction extends BaseAction
+{
+	@Override
+	public String execute() throws Exception
+	{
+		return SUCCESS;
+	}
+}

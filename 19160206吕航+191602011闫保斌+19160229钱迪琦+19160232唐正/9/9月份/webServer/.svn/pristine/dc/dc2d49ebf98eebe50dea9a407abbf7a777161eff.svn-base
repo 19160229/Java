@@ -1,0 +1,59 @@
+package com.jumploo.cms.conf;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.jumploo.cms.tcp.TCPClinet;
+import com.jumploo.test.mongo1.MongoDBInterface;
+
+public class SysDefine
+{
+	/**
+	 * IP过滤
+	 */
+	public static ConcurrentHashMap<String, String> ipFilter 
+		= new ConcurrentHashMap<String, String>();
+	
+	public static String LOG_PATH="/WEB-INF/conf/log4j.properties";//日志配置文件
+	public static String LOCAL_CONF = "/WEB-INF/conf/fileServer.xml";	
+	public static final String CONF_PATH = "/WEB-INF/conf/ref.xml";
+	//WEB 相关的全局配置 start
+	
+	public static String ACCESS_KEY ="";
+	public static final String SESSION_USER_ID = "usid";//用户session
+	//WEB 相关的全局配置 end
+	
+	 public static String[] dbIp           = null;
+	 public static int[] dbPort            = null;
+	 
+	public static final int SERVICE_APPLAY = 1;
+	public static final int SERVICE_PUSH_MSG = 2;
+
+	public static String localIp;
+	public static int localPort;
+
+	public static String dpsIp;
+	public static int dpsPort;
+
+	public static int SERVER_PORT ;
+	
+//	public static TCPClinet tcpClinet = null;
+	 
+	 public static MongoDBInterface mongoPorcess = null;
+	 public static MongoDBInterface mongoPorcess1 = null;
+	 public static MongoDBInterface mongoPorcess2 = null;
+	 public static MongoDBInterface mongoPorcess3 = null;
+	 public static MongoDBInterface mongoPorcess4 = null;
+	 public static MongoDBInterface mongoPorcess5 = null;
+	 
+	 public static final int SUCCESS			= 0;//成功
+	 public static final int ERROR				= 1;//失败，系统异常
+	 
+	 public static String HTTP_CT_VALUE           = "text/html;charset=UTF-8";
+	 
+	 public static int GenderMale = 1;
+	 public static int GenderFemale = 2;
+	 
+	 public static int TaskRecieveReply = 1;
+	 
+	 public final static int ADD_APPINFO = 1;//添加app信息
+}

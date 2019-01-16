@@ -1,0 +1,158 @@
+package com.jumploo.cms.tcp;
+
+/**
+ * @author admin TCP �����롢������ȶ���
+ */
+public final class TcpConf 
+{
+	public static final int REQ             = 0xFF;
+	// ģ��ID
+	public static final int MID_SYS         = 0x66;  // ע�����ģ��
+	public static final int MID_CIRCLE      = 0x67;  // Ȧ��
+	public static final int MID_PERSON      = 0x60;  // ����
+	public static final int MID_IM          = 0x61;  // ����
+	public static final int MID_FS          = 0x63;  // ���ѹ���
+	public static final int MID_LOG         = 0x53; //��������
+	public static final String REGIEST_MID  = "67"; 
+	// ģ��IDend
+
+	// ������
+	public static final int CMD_CA_REGIEST_DS       = 0x01;//ע����ݷ�����
+	public static final int CMD_SYS_SER_REGIST      = 0x02;//��̨����ע��
+	
+    
+	public static final int CMD_PERSON_AUTHEN       = 0x01;//��Ȩ
+    public static final int CMD_PERSON_LOGINOUT     = 0x02;//�˳�
+    public static final int CMD_PRTSON_HEART        = 0x03;//����
+    public static final int CMD_PERSON_T            = 0x04;//��T����
+    public static final int CMD_PERSON_REAUTHEN     = 0x05;//�ؼ�Ȩ
+    public static final int CMD_PERSON_VERSION_CK   = 0x06;//�汾���
+    public static final int CMD_PERSON_PUSH_UPDATE  = 0x07;//������
+    public static final int CMD_PRTSON_HEART_LOC    = 0x08;//��γ������
+    
+    
+    public static final int CMD_FS_ADD              = 0x01;//��Ӻ���
+    public static final int CMD_FS_DEL              = 0x02;//ɾ�����
+    public static final int CMD_FS_GET_LIST         = 0x03;//��ȡ�����б�
+    public static final int CMD_FS_PUSH_FRIEND      = 0x04;//���ͺ�����Ϣ
+    public static final int CMD_FS_SEARCH_USER      = 0x05;//�����û�
+    public static final int CMD_FS_PUSH_ADD_INFO    = 0x06;//������Ӻ�����Ϣ
+    public static final int CMD_FS_PUSH_ADD_ANS     = 0x07;//����Ӧ��
+    public static final int CMD_FS_PUSH_CH_FRI      = 0x08;//�������ͺ���
+    public static final int CMD_FS_PUSH_STATUS      = 0x09;//����״̬����
+    public static final int CMD_FS_GET_FRIEND_INFO  = 0x0A;//������ȡ������Ϣ
+    public static final int CMD_FS_GET_USER_BASIC   = 0x0B;//��ȡ���˻�����
+    public static final int CMD_FS_GET_USER_ADDTI   = 0x0C;//��ȡ���˸�������
+    public static final int CMD_FS_GET_CODE         = 0x0D;//��ȡ��֤��
+    public static final int CMD_FS_UPDATE_ADDTI     = 0x0E;//�޸ĸ�������
+    public static final int CMD_FS_UPDATE_PWD       = 0x0F;//�޸�����
+    public static final int CMD_FS_GET_FILEID_H     = 0x10;//��ȡͷ��ID
+    public static final int CMD_FS_LOCK_MOVIDID     = 0x11;//���ֻ��
+    public static final int CMD_FS_UPDATE_NICK      = 0x12;//�޸��ǳ�
+	// ������end
+    
+    public static final int CMD_LGT_SUBMIT         = 0x01;  //���˷���
+    public static final int CMD_LGT_PUSH_W         = 0x02;  //���ʹ������˵�
+    public static final int CMD_LGT_REPORT         = 0x03;  //���˱���
+    public static final int CMD_LGT_SURE           = 0x04;  //ȷ���µ�
+    public static final int CMD_LGT_LOCAL_R        = 0x05;  //λ���ϱ�
+    public static final int CMD_LGT_BUSINESS       = 0x07;  //�ϴ�Ӫҵ֤���ļ�
+    public static final int CMD_LGT_RATE           = 0x08;  //�ϴ�˰��Ǽ��ļ�
+    public static final int CMD_LGT_ORGAN          = 0x09;  //�ϴ���֯��֤�ļ�
+    public static final int CMD_LGT_UP_IDEN        = 0x0A;  //�ϴ����֤�ļ�
+    public static final int CMD_LGT_ORDER_DT       = 0x0B;  //��������
+    public static final int CMD_LGT_MAP_SEND       = 0x0C;  //��;��������ͼ��
+    public static final int CMD_LGT_LIST_SEND      = 0x0D;  //��;�������б?
+    public static final int CMD_LGT_PE_ADDTION     = 0x0E;  //���˸�����Ϣ��ȡ
+    public static final int CMD_LGT_ENTER_GET      = 0x0F;  //��˾��Ϣ��ȡ
+    public static final int CMD_LGT_CAR_INFO       = 0x10;  //������Ϣ��ȡ
+    public static final int CMD_LGT_PERSON_M       = 0x11;  //���˸�����Ϣ����
+    public static final int CMD_LGT_CAR_SEND       = 0x12;  //������Ϣ����
+    public static final int CMD_LGT_ENTER_M        = 0x13;  //��˾��Ϣ����
+    public static final int CMD_LGT_ORDER_PAY      = 0x14;  //��������
+    public static final int CMD_LGT_ORDER_COMM     = 0x15;  //��������
+    public static final int CMD_LGT_ORDER_COSE     = 0x16;  //�����ر�
+    public static final int CMD_LGT_ORDER_COMP     = 0x17;  //����Ͷ��
+    public static final int CMD_LGT_ORDER_HIS      = 0x18;  //��ʷ�˵�
+    public static final int CMD_LGT_ORDER_RPL      = 0x19;  //��ȡ���������б�
+    public static final int CMD_LGT_IN_SURE        = 0x1A;  //�ջ�ȷ��
+    public static final int CMD_LGT_GET_UP_FILE    = 0x1B;  //��ȡ�����ϴ��ļ�
+    public static final int CMD_LGT_CITY_CHANGE    = 0x1C;  //�л�����
+    public static final int CMD_LGT_CLIENT_SUBMIT  = 0x1D;  //�ͷ���������
+    public static final int CMD_LGT_PUSH_WAIT      = 0x1E;  //���ʹ�ȷ�ϻ���
+    public static final int CMD_LGT_WAIT_SURE_H    = 0x1F;  //��ȡ��ȷ�ϻ����б�
+    public static final int CMD_LGT_PUSH_CRT_CT_O  = 0x20;  //���͵�ǰ�������д�������
+    public static final int CMD_LGT_PUSH_H_REPORT  = 0x21;  //���ͻ��˱���
+    public static final int CMD_LGT_PUSH_H_RPT_L   = 0x22;  //���ͻ��˱����б�
+    public static final int CMD_LGT_LOGIN_SUCC_R   = 0x23;  //��¼�ɹ��ϱ�
+    public static final int CMD_LGT_PUSH_MY_W_D    = 0x24;  //�����ҵĶ����б�(�ҷ����Ĵ�������)
+    public static final int CMD_LGT_UPLOAD_DOOR_P  = 0x25;  //����˾��ͷ��
+    public static final int CMD_LGT_UPLOAD_CAR_P   = 0x26;  //�ϴ��������ļ�
+    public static final int CMD_LGT_UPLOAD_DRIV_P  = 0x27;  //�ϴ����˼�ʻ֤���ļ�
+    public static final int CMD_LGT_MY_DRIV_ORDER  = 0x28;  //�ҵ��˵���˾��
+    
+    public static final int CMD_CC_SED_SHARE       = 0x01;  //�������
+    public static final int CMD_CC_DEL_SHARE       = 0x02;  //ɾ�����
+    public static final int CMD_CC_PUSH_SHARE      = 0x03;  //���ͷ���
+    public static final int CMD_CC_SHARE_CI        = 0x04;  //ˢ�·���Ȧ���б�
+    public static final int CMD_CC_PUSH_SHARE_C    = 0x05;  //������������
+    public static final int CMD_CC_SUBMIT_ZAN      = 0x06;  //��
+    public static final int CMD_CC_GET_ZAN         = 0x07;  //��ȡ��
+    public static final int CMD_CC_CANCEL_ZAN      = 0x08;  //ȡ����
+    public static final int CMD_CC_RELAY_SEND      = 0x09;  //����ת��
+    public static final int CMD_CC_CM_SHARE_C      = 0x0A;  //���۷�������
+    public static final int CMD_CC_CM_SHARE_ZT     = 0x0B;  //������������
+    public static final int CMD_CC_CM_SHARE_DT     = 0x0C;  //ɾ����������
+    public static final int CMD_CC_CM_SHARE_GT     = 0x0D;  //��ȡ����
+    public static final int CMD_CC_CM_SHARE_D      = 0x0E;  //ɾ����������
+    public static final int CMD_CC_CO_SHARE_A      = 0x10;  //�ղط���
+    public static final int CMD_CC_CO_SHARE_D      = 0x11;  //ɾ�����
+    public static final int CMD_CC_CO_SHARE_G      = 0x12;  //��ȡ�ҵ��ղ�
+    public static final int CMD_CC_MY_SHARE        = 0x13;  //�ҵķ���
+    public static final int CMD_CC_GET_SHARE_FID   = 0x14;  //��ȡ�����ļ�ID
+    
+    
+    public static final int MID_SCHOOL      = 0x81;
+    public static final int CMD_SCH_LOGIN_REPORT    = 0x01;//�û���¼�ϱ�
+    public static final int CMD_SCH_PUB_HK_LIST     = 0x02;//��ҵ�б�
+    public static final int CMD_SCH_PUB_HK_RESE     = 0x03;//��ҵ����
+    public static final int CMD_SCH_PUB_HK_PUSH     = 0x04;//��ҵ����
+    public static final int CMD_SCH_PUB_HK_DETAIL   = 0x05;//��ҵ����
+    public static final int CMD_SCH_PUB_HK_COMMENT  = 0x06;//��ҵ����
+    public static final int CMD_SCH_PUB_HK_EX_INPUT = 0x07;//������ҵ¼��
+    public static final int CMD_SCH_PUB_HK_CM_PUSH  = 0x08;//��ҵ��������
+    public static final int CMD_SCH_GET_EX_HK       = 0x09;//��ȡ������ҵ
+    public static final int CMD_SCH_GET_HK_COMMENT  = 0x0A;//��ȡ��ҵ����
+    public static final int CMD_SCH_GET_PERSON_EXP  = 0x0B;//��ҵ��ʱ�ϱ�    
+    public static final int CMD_SCH_PUB_NOTICE_LIST = 0x0C;//ȫ�ֹ����б�
+    public static final int CMD_SCH_PUB_NOTICE_RESE = 0x0D;//��ҵͳ�ƻ�ȡ
+    public static final int CMD_SCH_PUB_NOTICE_PUSH = 0x0E;//ȫ�ֹ�������
+    public static final int CMD_SCH_PUB_NOTICE_DETL = 0x0F;//ȫ�ֹ������� 
+    public static final int CMD_SCH_PRI_NOTICE_LIST = 0x10;//�ֲ������б�
+    public static final int CMD_SCH_PRI_NOTICE_RESE = 0x11;//У԰���淢��
+    public static final int CMD_SCH_PRI_NOTICE_PUSH = 0x12;//�ֲ���������
+    public static final int CMD_SCH_PRI_NOTICE_DETL = 0x13;//�ֲ���������      
+    public static final int CMD_SCH_PUB_HK_LOAD_KE  = 0x14;//�ϴ��γ̱�
+    public static final int CMD_SCH_PUB_HK_GET_KE   = 0x15;//��ȡ�γ̱�    
+    public static final int CMD_SCH_GET_CLSINFO     = 0x16;//��ȡ�༶��Ϣ
+    public static final int CMD_SCH_GET_SCHINFO     = 0x17;//��ȡѧУ��Ϣ
+
+    public static final int CMD_CLS_ACTI_GET_LIST   = 0x19;//�༶��б��ȡ
+    public static final int CMD_CLS_ACTI_LIST_PUSH  = 0x1A;//�༶��б�����
+    public static final int CMD_CLS_ACTI_ADD        = 0x1B;//�༶�����
+    public static final int CMD_CLS_ACTI_PUSH       = 0x1C;//�༶�����
+    public static final int CMD_CLS_ACTI_DETAIL     = 0x1D;//�༶�����
+    public static final int CMD_CLS_ACTI_COMMET     = 0x1E;//�༶�����
+    public static final int CMD_CLS_ACTI_CM_GET_LIST= 0x20;//��ȡ������б�
+    public static final int CMD_CLS_ACTI_CM_PUSH_LI = 0x21;//���ͻ�����б�
+    public static final int CMD_CLS_ACTI_TXT_REPORT = 0x23;//���ݾٱ�
+    public static final int CMD_PERSON_ADD_FOOT     = 0x25;//����㼣
+    public static final int CMD_PERSON_GET_FOOT     = 0x26;//�㼣�б��ȡ
+    public static final int CMD_PERSON_PUS_FOOT     = 0x27;//�㼣�б�����
+    public static final int CMD_PERSON_DEL_FOOT     = 0x28;//�㼣�б�ɾ��
+    public static final int CMD_PERSON_ADD_LICHB    = 0x29;//�����̱�
+    public static final int CMD_PERSON_GET_LICHB    = 0x2A;//��̱��б��ȡ
+    public static final int CMD_PERSON_PUS_LICHB    = 0x2B;//��̱��б�����
+    public static final int CMD_PERSON_DEL_LICHB    = 0x2C;//��̱�ɾ��
+}
+

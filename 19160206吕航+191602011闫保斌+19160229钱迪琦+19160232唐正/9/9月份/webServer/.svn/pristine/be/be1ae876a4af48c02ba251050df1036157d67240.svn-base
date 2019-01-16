@@ -1,0 +1,71 @@
+package com.jumploo.cms.tcp;
+
+import org.apache.mina.core.service.IoHandlerAdapter;
+import org.apache.mina.core.session.IoSession;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.mgmt.MgmtProcess;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+/**
+ * Created by IntelliJ IDEA.
+ * 简单的消息处理器
+ * User: chiyan
+ * Date: 12-7-19
+ * Time: 上午12:19
+ */
+public class SimpleMinaServerHandler extends IoHandlerAdapter {
+
+	private AtomicInteger count = new AtomicInteger(0);
+
+	/**
+	 * 当一个客户端连接进入时
+	 */
+	@Override
+	public void sessionOpened(IoSession session) throws Exception {
+
+		System.out.println("client connection : " + session.getRemoteAddress());
+
+	}
+
+	/**
+	 * 当一个客户端关闭时
+	 */
+	@Override
+	public void sessionClosed(IoSession session) throws Exception {
+
+		System.out.println("client disconnection : " +session.getRemoteAddress() + " is Disconnection");
+
+	}
+
+    /**
+     * 当接收到客户端的信息
+     *
+     * @param session
+     * @param message
+     * @throws Exception
+     */
+	@Override
+	public void messageReceived(IoSession session, Object message)
+			throws Exception {
+
+		String str = (String)message;
+		//将数据处理为对应的类型
+		CmdOperation cmdOperation = getData(message);
+		SysDefine.msgRcvThread.addTask(cmdOperation);
+		System.out.println("receive client message : [ " + str +" ]");
+
+		// 回写消息给客户端
+		session.write("200");
+
+	}
+	
+	private CmdOperation getData(Object message)
+	{
+		CmdOperation cmdOperation = null;
+		return cmdOperation;
+	}
+
+}

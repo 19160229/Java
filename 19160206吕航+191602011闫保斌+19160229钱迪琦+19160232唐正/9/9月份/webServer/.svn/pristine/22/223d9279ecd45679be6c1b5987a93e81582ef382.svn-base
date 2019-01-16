@@ -1,0 +1,21 @@
+package com.jumploo.cms.db.dao;
+
+import java.util.List;
+
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.util.Page;
+
+public interface TaskDao {
+	public Task addTask(Task task) throws Exception;
+	
+	//根据时间获取task list
+	public int getTaskListByTime(List<Task> taskList, long time, Page page) throws Exception;
+	
+	//根据时间和分类获取task list pages:0 pagesize 1 page   cons:0 time  1 type  2 type content
+	public int getTaskListByTimeAndType(List<Task> taskList, Object[] pages, Object[] cons) throws Exception;
+	
+	//根据task mongoIid查找task 内容
+	public int getTaskByMongoIid(Task task) throws Exception;
+	//获取任务列表，分页搜索
+	public int getTaskList(List<Task> taskLIst, Page page) throws Exception;
+}

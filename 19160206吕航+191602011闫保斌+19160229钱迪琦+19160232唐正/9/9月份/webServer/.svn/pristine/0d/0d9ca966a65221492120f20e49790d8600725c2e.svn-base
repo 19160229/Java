@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MVC-INCLUDE	xmlns="http://www.jessma.org"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.jessma.org http://www.jessma.org/schema/mvc-config-include-3.3.xsd">
+	<actions>
+		<action name="cmsAuth" class="com.jumploo.cms.web.action.login.AuthAction">			
+				<result name="success">${jsp-path}/login.jsp</result>
+		</action>
+		<action name="login" class="com.jumploo.cms.web.action.login.LoginAction" />			
+		<action name="appManger" class="com.jumploo.cms.web.action.app.AppListAction">
+		    <entry name="queryList" method="queryList" />
+		    <entry name="queryAjax" method="queryListAjax" />
+		</action>		
+		
+		<action name="appAdd" class="com.jumploo.cms.web.action.app.AppAddAction">
+			<entry name="toAddAppInfo" method="toAddAppInfo"/>
+			<entry name="addApp" method="saveAppInfo"/>
+			<entry name="saveAndAddImg" method="saveAndAddImg"/>
+		</action>
+		
+		<action name="index" class="com.jumploo.cms.web.action.login.AuthAction" />			
+	<!-- 
+		<action name="index1" class="com.bruce.action.IndexActionSU">			
+			
+		</action>
+		
+		<action name="indexsd" class="com.bruce.action.IndexAction">			
+			
+		</action>
+		
+		<action name="toLogin" class="com.bruce.action.ToLoginAction">			
+			<result name="success">/WEB-INF/jsp/login.jsp</result>
+		</action>
+		
+		<action name="fileInfoUpload" class="com.bruce.action.file.FileUpload"/>
+		<action name="addCon" class="com.bruce.action.IndexAction2"/>
+		<action name="orgList" class="com.bruce.action.IndexAction4"/>
+		<action name="orgListPage" class="com.bruce.action.IndexAction3"/>		
+			 -->
+	</actions>
+		
+</MVC-INCLUDE>

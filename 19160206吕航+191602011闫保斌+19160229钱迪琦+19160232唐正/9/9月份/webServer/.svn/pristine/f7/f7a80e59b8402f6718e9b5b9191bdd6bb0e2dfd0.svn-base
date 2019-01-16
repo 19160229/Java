@@ -1,0 +1,10 @@
+package com.jumploo.cms.mgmt;
+
+import com.jumploo.cms.thread.SyncProcess;
+
+public abstract class BasicProcess
+{
+	protected static SyncProcess syncProcess = null;
+	public abstract int process(Object obj) throws Exception;
+	
+}

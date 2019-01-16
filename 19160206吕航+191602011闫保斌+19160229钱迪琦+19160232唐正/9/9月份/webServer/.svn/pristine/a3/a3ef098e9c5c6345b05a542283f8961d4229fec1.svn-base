@@ -1,0 +1,68 @@
+/** 
+* 创建人：胡太 
+* 联系方式：hutaizn@foxmail.com 
+* 创建时间：2015/11/6
+* @version 
+*/ 
+package com.jumploo.cms.db.dao.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.db.DBConfig;
+import com.jumploo.cms.db.dao.TaskDao;
+import com.jumploo.cms.util.Page;
+
+public class TaskDaoImpl implements TaskDao {
+	private static TaskDao taskDao = new TaskDaoImpl();
+	public TaskDaoImpl()
+	{
+	}
+	static TaskDao getTaskDao()
+	{
+		return taskDao;
+	}
+	@Override
+	public Task addTask(Task task) throws Exception {
+		// TODO Auto-generated method stub
+		Document doc = new Document();
+		// long cerDate = System.currentTimeMillis();
+		// doc.put(DBConfig.CREATE_DATE, cerDate);
+		doc.put(DBConfig.Task_A, task.getPublisheriid());
+		doc.put(DBConfig.Task_B, task.getDescription());
+		doc.put(DBConfig.Task_D, task.getCreateTime());
+		doc.put(DBConfig.Task_E, task.getTimeLength());
+		doc.put(DBConfig.Task_J, task.getLongitude());
+		doc.put(DBConfig.Task_K, task.getLatitude());
+		SysDefine.mongoPorcess4.insertOne(DBConfig.TAB_TASK_INFO, doc);
+		return null;
+	}
+	@Override
+	public int getTaskByMongoIid(Task task) throws Exception {
+		Document docu = new Document();
+		docu.put(DBConfig.MONGDB_IID, new ObjectId(task.getMongoid()));
+
+		Document doc = SysDefine.mongoPorcess4.queryOne(DBConfig.TAB_TASK_INFO, docu);
+		docu.clear();
+		docu = null;
+		
+		task.setDescription(doc.getString(DBConfig.Task_B));
+		task.setCreateTime(doc.getLong(DBConfig.Task_D));
+		task.setTimeLength(doc.getInteger(DBConfig.Task_E));
+		task.setLatitude(doc.getDouble(DBConfig.Task_J));
+		task.setLongitude(doc.getDouble(DBConfig.Task_K));
+		return SysDefine.SUCCESS;
+	}
+	@Override
+	public int getTaskList(List<Task> taskLIst, Page page) throws Exception {
+		List<Document> doc = new ArrayList<Document>();
+
+		return SysDefine.SUCCESS;
+	}
+
+}

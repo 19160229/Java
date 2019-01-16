@@ -1,0 +1,15 @@
+package com.jumploo.cms.mgmt;
+
+import org.apache.log4j.Logger;
+
+import com.jumploo.cms.log.LogManager;
+import com.jumploo.cms.thread.SyncProcess;
+
+public abstract class BasicProcess
+{
+	protected static Logger logger = LogManager.getLogManager().getRunLog();
+
+	protected static SyncProcess syncProcess = null;
+	public abstract int process(Object obj) throws Exception;
+	
+}

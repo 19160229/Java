@@ -1,0 +1,99 @@
+package com.jumploo.cms.accetptcp.client;
+
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.mina.core.future.ConnectFuture;
+import org.apache.mina.core.session.IoSession;
+import org.apache.mina.filter.codec.ProtocolCodecFilter;
+import org.apache.mina.transport.socket.nio.NioSocketConnector;
+
+import com.real.tcpserver.codec.SimpleMessageCodecFactory;
+
+public class TCPClinet
+{
+	private static final Log runLog = LogFactory.getLog(TCPClinet.class);
+	private IoSession session;
+	private NioSocketConnector ioConnector = null;
+	private SocketAddress address = null;
+	private boolean disconnect = true;
+
+	public boolean getDisconnect()
+	{
+		return disconnect;
+	}
+
+	void setDisconnectWaitTime(boolean disconnect)
+	{
+		this.disconnect = disconnect;
+	}
+
+	public TCPClinet(String remoteIp, int port,
+			ClinetProcessHandler clientProcess)
+	{
+		ioConnector = new NioSocketConnector();
+		try
+		{
+			// ���ÿͻ��˴����handle
+			ioConnector.setHandler(new ClientHandler(clientProcess,this));
+			address = new InetSocketAddress(remoteIp, port);
+			ioConnector.getFilterChain().addFirst("Codec",
+					new ProtocolCodecFilter(new SimpleMessageCodecFactory()));
+			ioConnector.getSessionConfig().setReceiveBufferSize(1024);
+			ioConnector.getSessionConfig().setSendBufferSize(10240);
+			ConnectFuture connFuture = ioConnector.connect(address);
+			connFuture.awaitUninterruptibly(5000);
+			ioConnector.getSessionConfig().setUseReadOperation(true);
+			if (connFuture.isConnected())
+			{
+				session = connFuture.getSession();
+			}
+		}
+		catch (Exception ee)
+		{
+			runLog.error("init clinet exception ", ee);
+			System.gc();
+		}
+	}
+
+	private void connect()
+	{
+		ConnectFuture connFuture = ioConnector.connect(address);
+		connFuture.awaitUninterruptibly(5000);
+		if (connFuture.isConnected())
+		{
+			session = connFuture.getSession();
+		}
+	}
+
+	public void send(Object obj) throws Exception
+	{
+		if (null== session || !session.isConnected())
+		{
+			runLog.debug("TCPClinet connect Disconnect,again connect");
+			connect();
+		}
+	    sendMsg(obj);
+	}
+
+	private void sendMsg(Object obj) throws Exception
+	{
+		if (!disconnect && session.isConnected())
+		{
+			session.write(obj);			
+		}
+		else
+		{
+			runLog.debug("TCPClinet connect Disconnect,can't send msg");
+			//SysConstant.poolTcp.addMsg(obj);
+			throw new Exception();
+		}
+	}
+
+	public void close()
+	{
+		session.close(true);
+	}
+}

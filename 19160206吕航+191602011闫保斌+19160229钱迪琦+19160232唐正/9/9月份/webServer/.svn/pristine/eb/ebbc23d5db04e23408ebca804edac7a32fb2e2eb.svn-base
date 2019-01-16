@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/jsp/buss/app/addAppInfo.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/buss/app/uploadImg.jsp=UTF-8
+encoding//WebRoot/page/publicSplitePage.jsp=UTF-8
+encoding//src/com/jumploo/cms/conf/Cms.java=UTF-8
+encoding//src/com/jumploo/cms/db/DBConfig.java=UTF-8
+encoding//src/log4j.properties=UTF-8
+encoding/<project>=UTF-8

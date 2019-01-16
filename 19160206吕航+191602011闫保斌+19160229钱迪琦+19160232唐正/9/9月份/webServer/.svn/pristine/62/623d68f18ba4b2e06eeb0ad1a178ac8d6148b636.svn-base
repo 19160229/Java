@@ -1,0 +1,38 @@
+package com.jumploo.cms.db.dao.impl;
+
+import org.bson.Document;
+
+import com.jumploo.cms.bean.AppInfo;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.db.DBConfig;
+import com.jumploo.cms.db.dao.AppDao;
+
+public final class AppDaoImpl implements AppDao
+{
+	private static AppDao appDao = new AppDaoImpl();
+	public AppDaoImpl()
+	{
+	}
+	static AppDao getAppDao()
+	{
+		return appDao;
+	}
+	@Override
+	public int releaseAppNum() throws Exception
+	{
+		return 0;
+	}
+	@Override
+	public int addAppInfo(AppInfo appInfo) throws Exception
+	{
+		Document doc = new Document();
+		doc.put(DBConfig.STR_A, appInfo.getProId());
+		doc.put(DBConfig.STR_B, appInfo.getAppName());
+		doc.put(DBConfig.STR_C, appInfo.getAppType());
+		doc.put(DBConfig.STR_D, appInfo.getAbout());
+		doc.put(DBConfig.STR_E, appInfo.getCompanyName());
+		doc.put(DBConfig.STR_F, appInfo.getTimeInfo());
+		SysDefine.mongoPorcess.insertOne(DBConfig.TAB_APP_INFO, doc);
+		return SysDefine.SUCCESS;
+	}
+}

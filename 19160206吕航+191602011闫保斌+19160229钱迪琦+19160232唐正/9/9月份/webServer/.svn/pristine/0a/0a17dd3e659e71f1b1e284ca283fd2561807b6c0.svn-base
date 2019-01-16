@@ -1,0 +1,57 @@
+package com.jumploo.cms.thread;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import org.apache.log4j.Logger;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.log.LogManager;
+import com.jumploo.cms.mgmt.InterationInterface;
+
+
+public class MsgRcvThread extends SyncProcess{
+	protected static final Logger runLog = LogManager.getLogManager().getRunLog();
+	private ConcurrentLinkedQueue<CmdOperation> queue;
+	private InterationInterface interation = null;
+	int len = 0;
+
+	public MsgRcvThread(InterationInterface _interation) {
+		queue = new ConcurrentLinkedQueue<CmdOperation>();
+		interation = _interation;
+	}
+
+	@Override
+	public void run() {
+		while (true) {
+			try {
+				CmdOperation cmdOperation = getTask();
+				interation.action(cmdOperation, this);
+			} catch (Exception ee) {
+				runLog.debug(ee);
+			}
+		}
+	}
+
+	public synchronized void addTask(CmdOperation ioMessage) {
+		queue.offer(ioMessage);
+		++len;
+		notifyAll();
+	}
+
+	public synchronized CmdOperation getTask() {
+		while (queue.isEmpty()) {
+			try {
+				runLog.debug(this.getName() + " wait");
+				wait();
+			} catch (Exception e) {
+
+			}
+		}
+		--len;
+		return queue.poll();
+	}
+
+	public int getCurrentLen() {
+		return len;
+	}
+}

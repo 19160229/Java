@@ -1,0 +1,82 @@
+/** 
+* 创建人：胡太 
+* 联系方式：hutaizn@foxmail.com 
+* 创建时间：2015/11/6
+* @version 
+*/ 
+package com.jumploo.cms.web.action.task;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.jessma.mvc.ActionSupport;
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.bean.DicTaskType;
+import com.jumploo.cms.bean.LatLon;
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.bean.User;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.db.dao.DicTaskTypeDao;
+import com.jumploo.cms.db.dao.TaskDao;
+import com.jumploo.cms.db.dao.UserDao;
+import com.jumploo.cms.db.dao.impl.DaoManager;
+import com.jumploo.cms.db.dao.impl.DicTaskTypeDaoImpl;
+import com.jumploo.cms.db.dao.impl.TaskDaoImpl;
+import com.jumploo.cms.db.dao.impl.UserDaoImpl;
+import com.jumploo.cms.web.action.BaseAction;
+
+public class AddTaskAction extends BaseAction {
+	
+	private String publisherID;
+	private String createTime;
+	private double latitude;
+	private double longitude;
+	private String description;
+	private String address;
+	private int timeLength;
+	private int taskTypeID;
+
+	@Override
+	public String execute() {
+		return "postTask";
+	}
+
+	@FormBean
+	public String addTask(){
+		Task task = new Task();
+		task.setAddress(address);
+		task.setContentPost(1);
+		try {
+			task.setCreateTime(SysDefine.timeTools.getCurrentSeconds());
+			task.setDescription(description);
+			task.setPreciseLocation(new LatLon(latitude, longitude));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			logger.debug(e);
+		}
+		
+		User publisher = DaoManager.getUserDao().findUserByID(publisherID);
+		task.setPublisher(publisher);
+		
+		task.setState(SysDefine.TaskRecieveReply);
+		
+		DicTaskType taskType = DaoManager.getDicTaskTypeDao().findDicTaskTypeByTypeId(taskTypeID);
+		task.setTaskType(taskType);
+		
+		task.setTimeLength(timeLength);
+		
+
+		task = DaoManager.getTaskDao().addTask(task);
+		if(task.getMongoid()!=null){
+
+			return "";
+		}else{
+
+			return "";
+		}
+		
+	}
+	
+}

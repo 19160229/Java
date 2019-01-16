@@ -1,0 +1,59 @@
+package com.jumploo.cms.bean;
+
+public class Student {
+	private String id;
+	private User user;
+	private Major major;
+	private School school;
+	private Education education;
+
+	public Student(String id, User user, Major major, School school, Education education) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.major = major;
+		this.school = school;
+		this.education = education;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Major getMajor() {
+		return major;
+	}
+
+	public void setMajor(Major major) {
+		this.major = major;
+	}
+
+	public School getSchool() {
+		return school;
+	}
+
+	public void setSchool(School school) {
+		this.school = school;
+	}
+
+	public Education getEducation() {
+		return education;
+	}
+
+	public void setEducation(Education education) {
+		this.education = education;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.jumploo.cms.db.dao;
+
+public interface TaskDao {
+	
+}

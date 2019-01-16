@@ -1,0 +1,47 @@
+/** 
+* 创建人：胡太 
+* 联系方式：hutaizn@foxmail.com 
+* 创建时间：2015/11/6
+* @version 
+*/ 
+package com.jumploo.cms.db.dao.impl;
+
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.db.DBConfig;
+import com.jumploo.cms.db.dao.TaskDao;
+
+public class TaskDaoImpl implements TaskDao {
+	private static TaskDao taskDao = new TaskDaoImpl();
+	public TaskDaoImpl()
+	{
+	}
+	static TaskDao getTaskDao()
+	{
+		return taskDao;
+	}
+	@Override
+	public Task addTask(Task task) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public int getTaskByMongoIid(String mongoIid, Task task) throws Exception {
+		Document docu = new Document();
+		docu.put(DBConfig.MONGDB_IID, new ObjectId(mongoIid));
+
+		Document doc = SysDefine.mongoPorcess.queryOne(DBConfig.TAB_TASK_INFO, docu);
+		docu.clear();
+		docu = null;
+		
+		task.setDescription(doc.getString(DBConfig.Task_B));
+		task.setCreateTime(doc.getLong(DBConfig.Task_D));
+		task.setTimeLength(doc.getInteger(DBConfig.Task_E));
+		task.setLatitude(doc.getDouble(DBConfig));
+		return SysDefine.SUCCESS;
+	}
+
+}

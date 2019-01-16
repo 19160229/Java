@@ -1,0 +1,22 @@
+package com.jumploo.cms.mgmt.apply;
+
+import com.jumploo.cms.mgmt.BasicProcess;
+
+import net.sf.json.JSONObject;
+
+
+public class ServiceApplay extends BasicProcess 
+{
+	@Override
+	public String process(JSONObject jsonObject,String key) 
+	{
+		return null;
+	}
+
+	@Override
+	public int process(Object obj) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

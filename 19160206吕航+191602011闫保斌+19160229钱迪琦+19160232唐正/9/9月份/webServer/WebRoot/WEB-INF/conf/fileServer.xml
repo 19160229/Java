@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<db>
+		<address>127.0.0.1:27017</address>
+	</db>
+</root>
+
+

@@ -1,0 +1,151 @@
+@charset "utf-8";
+/********CSS RESET*********/
+body { background-color:#2b3033;font:12px/1.2 '微软雅黑','宋体',Arial, Helvetica, sans-serif;}
+body,ul,li,div,p{margin:0px;padding:0px;border:0px;}
+body,h1,h2,h3,h4,h5,h6,hr,div,span,select,table,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+button,input,select,textarea{font-size:100%;}
+textarea{resize: none;}
+table{border-collapse:collapse;border-spacing:0;}
+ul,ol,li,dl,dt,dd{list-style:none;}
+fieldset,img{border:0;}
+a{color:#000;text-decoration:none;outline:none;}
+img{vertical-align:top;border:0px;}
+.gazyCom{color:#939393}
+input,textarea{border: 1px solid #cccccc;}
+
+
+/** 公共样式*/
+.thems {color: #555555;text-align: center;font-size: 25px;}
+#addBtn, .addBtn{width:100px;height:38px;background-image:url(../image/login/button_green.png);text-align: center;line-height: 40px;color: white;cursor: pointer;}
+#addMenu{width:100px;height:24px;background-image:url(../image/common/button_blue_24.png);text-align: center;line-height: 24px;color: white;cursor: pointer;}
+.backBtn{width:100px;height:38px;background-image:url(../image/common/button_red.png);text-align: center;line-height: 40px;color: white;cursor: pointer;}
+.saveBtn, .uploadBtn{width:100px;height:38px;background-image:url(../image/common/button_blue.png);text-align: center;line-height: 40px;color: white;cursor: pointer;}
+.remind1 {color:#6d6e6d;letter-spacing: 1px;line-height: 20px;width: 80%;}
+.first{margin-bottom:20px}
+.first .first_title{width: 300px; height: 35px; float: left}
+.first .first_content{float:right;height:35px;}
+.first .Second_content{float:right;height:35px;margin-right: 10px;}
+.first1 {/* margin: 10px 15px 10px 15px; */padding: 10px 0px 0px 0px}
+.remind {clear: both;/* margin: 0px 15px 0px 15px; */padding: 15px 0px 10px 0px;}
+.grayLine{/* background-color: #D6D6D6; */background-image:url(../image/common/grayLine.png);height: 2px;margin-left: -50px;}
+.whiteLine{background-color: white;height: 1px;width: 109%;margin-left: -50px;}
+.clear{font-size:0px; height:0px; line-height:0px; clear:both;}
+.fl{float:left;}
+.fr{float:right;}
+.mr10{margin-right:10px;}
+.mb10{margin-bottom:10px;}
+.container{width:1280px; margin:0 auto; overflow:hidden;}
+.board {padding-left: 80px;}
+
+/** 页头*/
+.top{width:100%;height:97px;margin:auto;background-color:#000;position:relative;}
+.top .left{width:220px;height:97px;float:left;background-image: url("../image/top/top_lift.png");}
+.top .con{width:5px;height:90px;background-image: url("../image/top/top_center3.png");}
+.top .right{width: 100%;height:90px;background-image: url("../image/top/top_right.png");}
+.top .icon{float: right;margin: 20px;color: #BDC3C7;font-size: 13px;}
+.top img{float:left;}
+.top .left .img{margin: 22px 0px 0px 10px;overflow: hidden;}
+.top .left .img div{font-size: 20px;margin-left: 10px;color: white;float: left;margin-top: 8px;}
+.top .icon div{float: right;margin-right: 10px;margin-bottom:10px}
+.top .icon font{cursor: pointer;}
+
+/** 右侧内容区域*/
+.out{width:100%;height:100%;}
+.menu{width:100%;height:auto; position:relative;background-color: #f4f4f4;}
+.menu_right{float: left;width:100%;background-color: #f4f4f4;}
+.menu_con{width:5px;background-color: #f4f4f4;}
+.menu table{width:100%;table-layout:fixed}
+
+/** 左侧菜单栏 */
+.orderBg_pt{background-color: #3e4549;}
+.order{width: 220px;background-color:#3e4549;margin-top: -1px;float: left;}
+.order li{list-style:none;font-size:12px;}
+.order .space{width:220px;height:150px;background-color:#3e4549;}
+.order .title{ width:220px;line-height:44px;color:#f2fdff;font-size:14px;cursor: pointer;background-image: url("../image/left/sidebar01.png"); }
+.order .title .icon{float: left;margin: 13px;}
+.order .chidrenTitle{ display:block;width:220px;line-height:44px;letter-spacing:2px;background-image: url("../image/left/sidebar02.png");font-weight: bold; color: #BDC3C7;cursor: pointer;}
+.order .chidrenTitle .icon{float:left;font-size: 20px;padding-top: 12px;padding-left:40px;;height: 32px}
+.order #ulMenu .chidren{display:none}
+
+/** 内容表格样式 background-color: #ADADAD; B9B9B9*/
+.main {min-height: 350px;margin-bottom: 20px;min-width:766px;}
+.main tr{border-bottom: 1px solid #dddddd;border-left: 1px solid #B9B9B9;}
+.main tr:last-child {border-bottom: 1px solid #B9B9B9;}
+.main td {color:#555555;text-align: center;height:40px; word-wrap: break-word;letter-spacing: 1px;font-size: 15px;}
+.main td {border-right: 1px solid #dddddd;border-top:1px solid #dddddd;}
+.main td:last-child {border-right: 1px solid #B9B9B9;}
+.main th{border-right: 1px solid #dddddd;color:#6d6e6d}
+/** 渐变效果-兼容ie浏览器(ie不支持tr背景色，故th背景渐变样式)*/
+.main th{filter:alpha(opacity=60 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#fcfcfd,endcolorstr=#eaeaeb,gradientType=0);}
+.main th:last-child {border-right: 1px solid #B9B9B9;border-right: 2px solid #B9B9B9\9}
+.main .fisrtTr{height: 40px; text-align:center; border: 1px solid #ADADAD;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfd), color-stop(0.5, #f3f3f3), to(#eaeaeb));/* 渐变效果-兼容谷歌浏览器*/
+	background-image: -moz-linear-gradient(top, #fcfcfd, #eaeaeb);/* 渐变效果-兼容火狐浏览器*/}
+.main a{color:#555555;}
+.main a:hover{
+	color:green;
+ text-decoration:underline;
+}
+/** 会员管理*/
+.manager{height:auto;}
+.manager .info .title{text-align: left;line-height: 38px;padding-left: 20px;font-size: 14px;color: #555555;font-weight: bold;}
+.manager .info .magTab .fisrtTr{border-top: 0px;}
+.manager td{border-top: 0px;}
+.manager .line{width:680px;height:4px;border-top:2px solid #B3B3B3;}
+.manager .search_lan{width:680px;height:40px; line-height:40px;}
+.manager #start,.manager #end{height:30px; line-height:30px; border: 1px solid #E3E3E3;}
+.manager #searchInfo,.manager #export{width:80px;height:30px; line-height:30px; border: 1px solid #E3E3E3; text-align:center;}
+.manager .text{width:680px;height:40px;}
+
+.subjectInfo input{width:400px}
+
+/** 自定义菜单*/
+  .pMenu .persMenuBtn{
+       	float:right; 
+       	margin-top:4px;
+       	margin-right:10px;
+       	width:75px; 
+       	height: 25px;
+       	cursor: pointer;
+       	border-radius: 5px 5px 5px 5px;
+        line-height: 25px;
+    }
+    .pMenu tr{
+		border-left: 0px;
+	}
+	.pMenu tr:last-child {
+		border-bottom: 0px
+	}
+	.pMenu th:last-child {
+		border-right: 0px 
+	}
+	.pMenu td{
+		line-height: 28px;
+		border-top: 0px 
+	}
+	.pMenu dl{
+		float: left;
+		height: 100%;
+		padding-top: 10px;
+		height: 30px;
+	}
+	
+	.pMenu .parentList,.subList{
+		overflow: hidden;
+		border-top: 1px solid #dddddd;
+	}
+	.pMenu li div:last-child{
+		border-bottom: 0px;
+	}
+	.pMenu li:last-child div dl:last-child{
+		padding-top: 5px;
+	}
+	.pMenu a{
+		margin: 5px;
+	}
+	.pMenu .preMenuLi{
+		overflow: hidden;
+	}

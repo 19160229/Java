@@ -1,0 +1,77 @@
+package com.jumploo.cms.web;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.jumploo.cms.accetptcp.ClinetProcess;
+import com.jumploo.cms.accetptcp.client.ClinetProcessHandler;
+import com.jumploo.cms.accetptcp.client.TCPClinet;
+import com.jumploo.cms.accetptcp.util.ConvertUtil;
+import com.jumploo.cms.accetptcp.util.XmlParser;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.log.LogManager;
+
+//import com.jumploo.cms.comm.tcp.ClinetProcess;
+//import com.jumploo.platform.comm.tcp.client.ClinetProcessHandler;
+//import com.jumploo.platform.comm.tcp.client.TCPClinet;
+//import com.jumploo.platform.conf.SysDefine;
+//import com.jumploo.platform.log.LogManager;
+//import com.jumploo.platform.util.ConvertUtil;
+//import com.jumploo.platform.util.XmlParser;
+
+public class Acccept 
+{
+//	private static OffLineManage fileServer = null;
+	private static Logger runLog = LogManager.getLogManager().getRunLog();
+	public Acccept()
+	{
+//		fileServer = (OffLineManage) Global.getBean("online");
+	}
+	public void init(String path)
+	{
+		try
+		{
+			runLog.fatal("init accept server start");
+			initInfo(path);
+			loadTcp();
+			runLog.fatal("init accept server end");
+		}
+		catch(Exception ee)
+		{
+			runLog.error("", ee);
+			System.gc();
+			System.exit(-1);
+			
+		}
+	}
+	private void loadTcp()
+	{
+		ClinetProcessHandler clientHandler = new ClinetProcess();
+		SysDefine.tcpClinet = new TCPClinet(SysDefine.dpsIp, SysDefine.dpsPort, clientHandler);
+	}
+	private void initInfo(String path) throws Exception
+	{
+		Map map = XmlParser.getMap(path+SysDefine.CONF_PATH);
+		try
+		{
+			String localIp = map.get("localIp").toString();
+			String portStr = map.get("localport").toString();
+			
+			String dpsIp = map.get("dpsIp").toString();
+			String dpsPort = map.get("dpsPort").toString();
+			
+			SysDefine.localIp = localIp;
+			SysDefine.localPort = ConvertUtil.parseInt(portStr);
+			
+			SysDefine.dpsIp = dpsIp;
+			SysDefine.dpsPort = ConvertUtil.parseInt(dpsPort);
+			
+			runLog.debug("conf finallsh");
+		}
+		catch(Exception ee)
+		{
+			throw new Exception(ee);
+		}
+	}
+}

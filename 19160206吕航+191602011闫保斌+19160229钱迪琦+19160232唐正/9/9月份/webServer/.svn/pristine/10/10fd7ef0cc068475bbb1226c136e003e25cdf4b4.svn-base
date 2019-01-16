@@ -1,0 +1,133 @@
+package com.jumploo.cms.web.servlet.async;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.servlet.AsyncContext;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
+
+import org.apache.log4j.Logger;
+
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.log.LogManager;
+import com.jumploo.cms.mgmt.BasicProcess;
+import com.jumploo.cms.mgmt.apply.ServiceApplay;
+import com.jumploo.cms.mgmt.push.ServicePushMsg;
+
+public class Executor implements Runnable
+{
+	private static Logger runLog = LogManager.getLogManager().getRunLog();
+	private static BasicProcess sApply = new ServiceApplay();
+	private static BasicProcess sPush = new ServicePushMsg();
+	private AsyncContext actx = null;	
+	private int type;
+	public Executor(AsyncContext actx,int type) 
+	{
+		this.actx = actx;
+		this.type = type;
+	}
+
+	@Override
+	public void run() 
+	{
+		ServletRequest request = actx.getRequest();
+		HttpServletResponse response = (HttpServletResponse)actx.getResponse();
+		
+		String json = readJSONStringFromRequestBody(request);
+		JSONObject jsonObject = null;
+		String backJson = null;
+        try   
+        {
+           jsonObject = JSONObject.fromObject(json);
+           switch(this.type)
+           {
+           case SysDefine.SERVICE_APPLAY:
+        	   backJson = sApply.process(jsonObject,null);
+        	   break;
+           case SysDefine.SERVICE_PUSH_MSG:
+        	   String key = request.getParameter("access_key");
+        	   if (null != key || !"".equals(key))
+        	   {
+        		   backJson = sPush.process(jsonObject,key);
+        	   }
+        	   break;
+           }
+        } 
+        catch (JSONException pe)  
+        {
+        	runLog.error("", pe);
+        } 
+       
+       response.setContentType("text/xml");
+       try 
+       {
+    	   response.getWriter().print(backJson);
+	   } 
+       catch (IOException e)
+       {
+    	   runLog.error("", e);
+	   }
+	}
+	private boolean checkHttpServer(String httpUlr)
+	{
+		java.net.URL l_url = null;
+		java.net.HttpURLConnection l_connection = null;
+		BufferedReader l_reader = null;
+		InputStream l_urlStream = null;
+
+		try
+		{			
+			l_url = new java.net.URL(httpUlr);
+			l_connection = (java.net.HttpURLConnection) l_url.openConnection();
+			//������Ϣͷ start 
+			l_connection.setDoInput(true);
+			l_connection.setDoOutput(true);
+			l_connection.setUseCaches(false);
+			l_connection.setRequestMethod("POST");
+			l_connection.setRequestProperty("User-Agent",
+					"Mozilla/4.7 (ShowSky)");
+			l_connection.setRequestProperty("content-type", "text/xml;charset=UTF-8");
+			int code = l_connection.getResponseCode();
+			if (code != 200)
+			{
+				return false;
+			}
+		}
+		catch(Exception ee)
+		{
+			return false;
+		}
+		return true;
+	}
+	private String buildRsp(JSONObject jsonObject)
+	{
+//		String responseText  =   " You have a  "   +  jsonObject.getInt( " year " )  +   "   " 
+//	            +  jsonObject.getString( " make " )  +   "   "   +  jsonObject.getString( " model " )
+//	            +   "   "   +   "  that is  "   +  jsonObject.getString( " color " )  +   "  in color. " ;
+		return "123";
+	}
+	private  String readJSONStringFromRequestBody(ServletRequest request)
+	{
+        StringBuffer json = new StringBuffer();
+        String line  =   null;
+         try  
+         {
+            BufferedReader reader  =  request.getReader();
+             while ((line  =  reader.readLine())  !=   null ) 
+             {
+                json.append(line);
+             } 
+         }
+         catch (Exception e)  
+         {
+        	 runLog.error("", e);
+         } 
+         return  json.toString();
+    } 
+}
+

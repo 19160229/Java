@@ -1,0 +1,96 @@
+package com.jumploo.cms.conf;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.jumploo.cms.bean.KeyWord;
+import com.jumploo.cms.thread.MsgRcvThread;
+import com.jumploo.cms.thread.TaskCleanThread;
+import com.jumploo.cms.util.TimeTools;
+import com.jumploo.cms.util.SQLPool.ConnectionPool;
+
+
+public class SysDefine
+{
+	/**
+	 * IP过滤
+	 */
+	public static ConcurrentHashMap<String, String> ipFilter 
+		= new ConcurrentHashMap<String, String>();
+	
+	public static String LOG_PATH="/WEB-INF/conf/log4j.properties";//日志配置文件
+	public static String LOCAL_CONF = "/WEB-INF/conf/fileServer.xml";	
+	public static final String CONF_PATH = "/WEB-INF/conf/ref.xml";
+	//WEB 相关的全局配置 start
+	
+	public static String ACCESS_KEY ="";
+	public static final String SESSION_USER_ID = "usid";//用户session
+	//WEB 相关的全局配置 end
+	
+	 public static String[] dbIp           = null;
+	 public static int[] dbPort            = null;
+	 
+	public static final int SERVICE_APPLAY = 1;
+	public static final int SERVICE_PUSH_MSG = 2;
+
+	public static String localIp;
+	public static int localPort;
+
+	public static String dpsIp;
+	public static int dpsPort;
+
+	public static int SERVER_PORT ;
+	
+//	public static TCPClinet tcpClinet = null;
+
+	public static final String TIME_YMDHMS = "yyyyMMddHHmmss";
+	public static final String TIME_YMDHM = "yyyyMMddHHmm";// HH大写以使用24小时制
+	public static final String TIME_YMD = "yyyyMMdd";
+	public static final String TIME_YMDHM_SHOW = "yyyy-MM-dd HH:mm";
+	
+	 
+	public static final int SUCCESS			= 0;//成功
+	public static final int ERROR				= 1;//失败，系统异常
+	public static final int Fail				= -1;//失败
+	
+	public static String HTTP_CT_VALUE           = "text/html;charset=UTF-8";
+	
+	public static int GenderMale = 1;
+	public static int GenderFemale = 2;
+	
+	public static int TaskRecieveReply = 1;
+	 
+	public final static int ADD_APPINFO = 1;//添加app信息
+	public final static int GET_TASKINFO = 2;//查询任务具体信息
+	public final static int CLEAN_TIMEOUTTASK = 3;//清理超时任务
+	
+	//rspType
+	public final static int NONE_RSP = 1;
+	public final static int ONE_RSP  = 2;
+	public final static int LIST_RSP = 3;
+	
+	//用于接收客户端发送过来的数据
+	public static MsgRcvThread msgRcvThread = null;
+	public static TaskCleanThread taskCleanThread = null;
+	
+	//全局的工具类定义
+	public static TimeTools timeTools = null;
+	
+	
+	
+	
+	
+	public static  Connection question=null;
+	public static  ConnectionPool  connPool = null;
+	
+	public static KeyWord[] keywords=null;
+	public static ResultSet rsKW=null;
+	public static Set<String> wordSet=null;
+	
+	
+	
+	
+	
+}

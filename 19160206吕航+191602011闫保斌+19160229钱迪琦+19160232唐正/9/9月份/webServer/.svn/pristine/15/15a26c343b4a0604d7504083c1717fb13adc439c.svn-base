@@ -1,0 +1,134 @@
+package com.jumploo.cms.web.action.app;
+
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.bean.AppInfo;
+import com.jumploo.cms.web.action.BaseAction;
+
+public class AppAddAction extends BaseAction
+{
+	private String url;
+	private String appName;
+	private int appType;
+	private String about;
+	private String companyName;
+	private int productId;
+	
+	@FormBean
+	@Override
+	public String execute()
+	{
+		return SUCCESS;
+	}
+	
+	//跳转到添加app基础信息界面
+	public String toAddAppInfo()
+	{
+		id="/WEB-INF/jsp/buss/app/addAppInfo.jsp";
+		return SUCCESS;
+	}
+	//跳转到上传图片界面
+	public String toAddImg()
+	{
+		id="/WEB-INF/jsp/buss/app/upladImg.jsp";//上传图片jsp页面
+		return SUCCESS;
+	}
+	//保存app基础信息
+	@FormBean
+	public String saveAppInfo() throws Exception
+	{
+		//保存app信息
+		AppInfo appInfo = new AppInfo();
+		appInfo.setAbout(about);
+		appInfo.setAppName(appName);
+		appInfo.setAppType(appType);
+		appInfo.setCompanyName(companyName);
+		appInfo.setProId(productId);
+//		appServer.addAppInfo(appInfo);
+//		addAppInfoMgmt.process(appInfo);
+		appInfo = null;
+		
+		
+		url="../appManger!queryList.action";
+		id="/WEB-INF/jsp/public/success.jsp";
+		return SUCCESS;
+	}
+	//保存app基础信息并且跳转至上传图片界面
+	@FormBean
+	public String saveAndAddImg() throws Exception
+	{
+		//保存app信息
+		AppInfo appInfo = new AppInfo();
+		appInfo.setAbout(about);
+		appInfo.setAppName(appName);
+		appInfo.setAppType(appType);
+		appInfo.setCompanyName(companyName);
+		appInfo.setProId(productId);
+//		appServer.addAppInfo(appInfo);
+//		addAppInfoMgmt.process(appInfo);
+		appInfo = null;
+		
+		id="/WEB-INF/jsp/buss/app/uploadImg.jsp";//上传图片jsp页面
+		return SUCCESS;
+	}
+	
+	public String getUrl()
+	{
+		return url;
+	}
+
+	public void setUrl(String url)
+	{
+		this.url = url;
+	}
+
+	public String getAppName()
+	{
+		return appName;
+	}
+
+	public void setAppName(String appName)
+	{
+		this.appName = appName;
+	}
+
+	public int getAppType()
+	{
+		return appType;
+	}
+
+	public void setAppType(int appType)
+	{
+		this.appType = appType;
+	}
+
+	public String getAbout()
+	{
+		return about;
+	}
+
+	public void setAbout(String about)
+	{
+		this.about = about;
+	}
+
+	public String getCompanyName()
+	{
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName)
+	{
+		this.companyName = companyName;
+	}
+	public int getProductId()
+	{
+		return productId;
+	}
+	public void setProductId(int productId)
+	{
+		this.productId = productId;
+	}
+	
+	
+}

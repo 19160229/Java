@@ -1,0 +1,293 @@
+package com.jumploo.cms.tcp;
+
+import java.io.ByteArrayInputStream;
+
+import org.apache.mina.core.session.IoSession;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+import com.real.tcpserver.msg.simple.SimpleIoMessage;
+//import com.tool.file.util.log.LogManager;
+import com.real.tcpserver.service.IoServiceHandler;
+import com.real.tcpserver.service.impl.Service;
+import com.real.tcpserver.tool.ByteTools;
+import com.real.test.DataEncryption;
+import com.real.test.ZlibUtil;
+
+
+public class CHandler implements IoServiceHandler
+{
+
+	private int couint = 0;
+//	protected static final Logger //runLog = LogManager.getLogManager().get//runLog();
+    public static String PUB_KEY = "FeDcBa9876543210";
+    public String circleId = null;
+    public String priKey = null;
+    public long reciIm = 0L;
+    public long receCircleNum = 0L;
+    public long rspCircleNum = 0L;//Ȧ����Ӧ
+    
+    public long receFirendReq = 0L;//���ܵ���������
+    public long rspFirendReq = 0L;//�յ����������Ӧ
+	public CHandler()
+	{
+	}
+	
+	/**
+	 */
+	@Override
+	public void onMessageReceived(SimpleIoMessage message,IoSession session)
+	{
+	}
+	
+	@Override
+	public void onNoticeReceived(SimpleIoMessage message)
+	{
+	}
+	private Service service;
+
+    /**
+     * setservice
+     * @param service  service
+     */
+    public void setService(Service service)
+    {
+        this.service = service;
+    }
+
+	public Service getService()
+	{
+		return service;
+	}
+	/**
+	 */
+	public void sessionClose(IoSession iosession) 
+	{
+		try
+		{
+			iosession.close();
+			String id = String.valueOf(iosession.getId());
+		}
+		catch(Exception ee)
+		{
+		}
+	}
+	@Override
+	public void onMessageReceived(byte[] arg0, IoSession arg1) 
+	{
+	    
+		 try
+         {
+//		    StartMain.recive.addTask(arg0);
+         	int mid = (int)arg0[2];
+         	 System.out.println(System.currentTimeMillis() + " mid = " + mid);
+         	switch(mid)
+            {
+                case TcpConf.MID_PERSON:
+                    processLogin(arg0);
+                    break;
+                case TcpConf.MID_IM:
+                    processIm(arg0,arg1);
+                    break;
+                case TcpConf.MID_FS:
+                    processFriend(arg0);
+                    break;
+                case TcpConf.MID_CIRCLE:
+                    processCircle(arg0);
+                    break;
+               default:
+                    otherProcess(arg0, arg1);
+                    break;
+            }
+         	
+         }
+         catch(Exception ee)
+         {
+         	System.out.println(ee);
+         }
+		 
+	}
+	private void otherProcess(byte[] arg0,IoSession session)
+    {
+	    int uid = ByteTools.byte4ToInt(arg0, 6);
+        try 
+        {
+            int xx = ByteTools.byte2ToShort12(arg0, 0);
+            int xe = xx -8;
+            if (xe >0 )
+            {
+                byte[] bd =  new byte[xe];
+                System.arraycopy(arg0, 10, bd, 0, xe);
+                byte[] xy = ZlibUtil.decompress(DataEncryption.unEncryption(bd,priKey));
+                System.out.println(new String(xy,"UTF-8"));
+            }
+        } 
+        catch (Exception e) 
+        {
+//            System.out.println(uid +"  IM error" +e);
+//            //runLog.debug(uid +"  OTHER error",e);
+        }
+    }
+    public byte[] unzip(byte[] bd)
+    {
+        return ZlibUtil.decompress(DataEncryption.unEncryption(bd,priKey));
+    }
+    private void processLogin(byte[] arg0)
+    {
+        try 
+        {
+            int cmd = (int)arg0[3];
+            if (cmd == TcpConf.CMD_PERSON_AUTHEN)
+            {
+                int xx = ByteTools.byte2ToShort12(arg0, 0);
+                int xe = xx -8;
+                byte[] bd =  new byte[xe];
+                System.arraycopy(arg0, 10, bd, 0, xe);
+                byte[] xy = ZlibUtil.decompress(DataEncryption.unEncryption(bd,PUB_KEY));
+                System.out.println(new String(xy));
+                SAXReader read = new SAXReader();
+                Document doc = read.read(new ByteArrayInputStream(xy));
+                Element root = doc.getRootElement();
+                priKey = root.element("k").getText();
+                System.out.println(priKey);
+            }
+        } 
+        catch (Exception e) 
+        {
+//            System.out.println("LOGIN error"+e);
+//            //runLog.debug("LOGIN error ",e);
+        }
+    }
+    
+    private void processIm(byte[] arg0,IoSession session)
+    {
+        int uid = ByteTools.byte4ToInt(arg0, 6);
+        try 
+        {
+            int st = arg0[4]&0xff;
+            if (st == TcpConf.REQ)
+            {
+                int xx = ByteTools.byte2ToShort12(arg0, 0);
+                int xe = xx -8;
+                byte[] db = new byte[xe];
+                System.arraycopy(arg0, 10, db, 0, xe);
+                if (null != db && db.length >0)
+                {
+                    byte[] xy = unzip(db);
+                    SAXReader read = new SAXReader();
+                    Document doc = read.read(new ByteArrayInputStream(xy));
+                    Element root = doc.getRootElement();
+                    String fid = root.element("f").getText();
+                    byte[] aaa = jiami("<r><f>"+fid+"</f></r>", priKey);
+                    int len = aaa.length;
+                    byte[] aa = new byte[len + 10];
+                    
+                    ByteTools.shortToByte2((short)(len + 8),aa,0);
+                    aa[2] = arg0[2];
+                    aa[3] = arg0[3];
+                    aa[4] = (byte)0x00;
+                    aa[5] = arg0[5];
+                    aa[6] = arg0[6];
+                    aa[7] = arg0[7];
+                    aa[8] = arg0[8];
+                    aa[9] = arg0[9];                    
+                    System.arraycopy(aaa,0, aa, 10, len);
+                    session.write(aa);
+                }
+                ++reciIm;
+                //System.out.println("im reci" + reciIm);
+            }
+            else
+            {
+                ++rspCircleNum;
+            }
+        } 
+        catch (Exception e) 
+        {
+//            System.out.println(uid +"  IM error" +e);
+            //runLog.debug(uid +"  IM error",e);
+        }
+    }
+    private byte[] jiami(String body, String key) throws Exception
+    {
+        return DataEncryption.encryption(
+                ZlibUtil.compress(body.getBytes("UTF-8")), key);
+    }
+    
+    private void processFriend(byte[] arg0)
+    {
+        try 
+        {
+            //byte[] xy = unzip(db);
+            int st = (int)arg0[4] & 0xff;
+            if (st == TcpConf.REQ)
+            {
+                int xx = ByteTools.byte2ToShort(arg0, 0);
+                int xe = xx -8;
+                if (xe>0)
+                {
+                    byte[] db = new byte[xe];
+                    System.arraycopy(arg0, 10, db, 0, xe);
+                    byte[] xy = unzip(db);
+                    System.out.println(new String(xy));
+                    ++receFirendReq;
+                }
+               // System.out.println("receFirend == " + receFirendReq);
+            }
+            else
+            {
+                int xx = ByteTools.byte2ToShort12(arg0, 0);
+                int xe = xx -8;
+                if (xe >0 )
+                {
+                    byte[] bd =  new byte[xe];
+                    System.arraycopy(arg0, 10, bd, 0, xe);
+                    byte[] xy = ZlibUtil.decompress(DataEncryption.unEncryption(bd,priKey));
+                    System.out.println(new String(xy));
+                }
+                ++rspFirendReq;
+            }
+            //int cmd = ioMessage.getCmdType();
+        } 
+        catch (Exception e) 
+        {
+            
+//            System.out.println("Friend error"+e);
+            //runLog.debug("",e);
+        }
+    }
+    
+    private void processCircle(byte[] arg0)
+    {
+        try 
+        {
+            
+            int cmd = arg0[3];
+            if (cmd == TcpConf.CMD_CC_PUSH_SHARE)
+            {
+                int xx = ByteTools.byte2ToShort(arg0, 0);
+                int xe = xx -8;
+                byte[] db = new byte[xe];
+                System.arraycopy(arg0, 10, db, 0, xe);
+                byte[] xy = unzip(db);
+                //System.out.println(new String(xy));
+                SAXReader read = new SAXReader();
+                Document doc = read.read(new ByteArrayInputStream(xy));
+                Element root = doc.getRootElement();
+                String t = root.attribute("t").getText();
+                if (t.equals("1"))
+                {
+                    circleId = root.attribute("f").getText();
+                    ++receCircleNum;
+                    System.out.println("circle num  " + circleId);
+                }
+            }
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Circle error"+e);
+//            //runLog.debug("Circle error",e);
+        }
+    }
+}

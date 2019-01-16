@@ -1,0 +1,8 @@
+package com.jumploo.cms.mgmt;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.thread.SyncProcess;
+
+public interface InterationInterface {
+	public void action(CmdOperation cmdOperation, SyncProcess process);
+}

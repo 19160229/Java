@@ -1,0 +1,71 @@
+package com.jumploo.cms.bean;
+
+import java.util.Date;
+
+public class Invite {
+	private String id;
+	private User inviter;
+	private User beinviter;
+	private Task task;
+	private Date time;
+	private int state;
+
+	public Invite(String id, User inviter, User beinviter, Task task, Date time, int state) {
+		super();
+		this.id = id;
+		this.inviter = inviter;
+		this.beinviter = beinviter;
+		this.task = task;
+		this.time = time;
+		this.state = state;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public User getInviter() {
+		return inviter;
+	}
+
+	public void setInviter(User inviter) {
+		this.inviter = inviter;
+	}
+
+	public User getBeinviter() {
+		return beinviter;
+	}
+
+	public void setBeinviter(User beinviter) {
+		this.beinviter = beinviter;
+	}
+
+	public Task getTask() {
+		return task;
+	}
+
+	public void setTask(Task task) {
+		this.task = task;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+}

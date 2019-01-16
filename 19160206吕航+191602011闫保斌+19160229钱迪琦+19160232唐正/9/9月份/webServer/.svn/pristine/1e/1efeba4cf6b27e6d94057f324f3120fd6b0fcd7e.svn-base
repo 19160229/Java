@@ -1,0 +1,25 @@
+package com.jumploo.cms.db.server.impl;
+
+import com.jumploo.cms.bean.User;
+import com.jumploo.cms.db.dao.AppDao;
+import com.jumploo.cms.db.dao.UserDao;
+import com.jumploo.cms.db.dao.impl.DaoManager;
+import com.jumploo.cms.db.server.AppServer;
+import com.jumploo.cms.db.server.UserServer;
+
+public class UserServerImpl implements UserServer {
+
+	private static UserServerImpl us = new UserServerImpl();
+	private UserDao dao = null;
+	public UserServerImpl() {
+		dao = DaoManager.getUserDao();
+	}
+	public static UserServer getServer() {
+		return us;
+	}
+	@Override
+	public User findUserByID(String id) throws Exception {
+		return dao.findUserByID(id);
+	}
+
+}

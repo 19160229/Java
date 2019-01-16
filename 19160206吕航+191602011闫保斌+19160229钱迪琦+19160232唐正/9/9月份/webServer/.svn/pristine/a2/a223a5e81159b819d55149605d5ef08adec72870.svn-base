@@ -1,0 +1,46 @@
+package com.jumploo.cms.mgmt;
+
+import java.util.List;
+
+import com.jumploo.cms.bean.CmdOperation;
+import com.jumploo.cms.conf.SysDefine;
+import com.jumploo.cms.mgmt.app.AppInfoAddMgmt;
+import com.jumploo.cms.mgmt.task.TaskInfoFindMgmt;
+import com.jumploo.cms.mgmt.task.TaskTimeOutCleanMgmt;
+import com.jumploo.cms.thread.SyncProcess;
+
+public class MgmtProcess implements InterationInterface {
+
+	private static InterationInterface appInfoAddMgmt = new AppInfoAddMgmt();
+	private static InterationInterface taskInfoFindMgmt = new TaskInfoFindMgmt();
+	private static InterationInterface taskTimeOutCleanMgmt = new TaskTimeOutCleanMgmt();
+	private static List list = null;
+	
+	@Override
+	public List action(CmdOperation cmdOperation, SyncProcess process) {
+		// TODO Auto-generated method stub
+		
+		
+		InterationInterface tmp = null;
+		switch(cmdOperation.getCmdType())
+		{
+		case SysDefine.ADD_APPINFO:
+			tmp = appInfoAddMgmt;
+			break;
+		case SysDefine.GET_TASKINFO:
+			tmp = taskInfoFindMgmt;
+			break;
+		case SysDefine.CLEAN_TIMEOUTTASK:
+			tmp = taskTimeOutCleanMgmt;
+			break;
+		default:
+			break;
+		}
+		if(null != tmp)
+		{
+			list = tmp.action(cmdOperation, process);
+		}
+		return list;
+	}
+
+}

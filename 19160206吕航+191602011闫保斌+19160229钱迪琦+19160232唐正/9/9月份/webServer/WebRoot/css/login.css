@@ -1,0 +1,28 @@
+body{font-family: "微软雅黑";}
+.out {width: 1132px;height: auto;margin: auto; float:left}
+.bg{height:444px; width: 1132px;background-image: url(../image/login/bg_02.png);}
+.bg_phonoe{margin-top: -574px;margin-left: 142px;width:450px;height:654px; background-image:url(../image/login/bg_01.png)}
+/*.bg_phonoe img{margin-top:-427px\9;*margin-top:0px !important; }*/
+.login{width: 344px;height: 444px;margin-left: 732px;}
+
+.title{padding-top: 24px;}
+.title img{float: left;margin-left: -20px;}
+.title div{margin-top:25px;margin-bottom: 40px;margin-left:93px;font-size:26px;font-weight: bold;color: white;}
+.login_bg{background-image:url(../image/login/box.png);width:300px;height:300px;}
+.login_input{margin-bottom: 40PX;height: 160px;}
+.login_input input{margin-left: 70px;width: 210px;height: 32px;border-radius: 6px 6px 6px 6px;border: 1px solid #e5e5e5;text-indent: 1em;*text-indent: 0em;*width: 190px; *height: 20px;*border: 0px solid;!important;}
+.login_input .user{margin-top: 40px;margin-bottom: 23px;*margin-left:80px; *margin-top:50px;*margin-bottom: 30px;}
+.login_input .password{margin-bottom: 15px; *margin-left:80px;}
+.login_input .tip{font-size: 12px;text-align: center;color:#d66d92;display: none;}
+
+.login_btn div{width:100px;height:38px;background-image:url(../image/login/button_green.png);text-align: center;line-height: 40px;color: white;cursor: pointer;}
+.login_btn .loginBtn{float: left;margin-left: 20PX;}
+.login_btn .resetBtn{float: right;margin-right: 20PX;}
+
+.skyBlue{color: #38c8e0;}
+.black {color:#000}
+
+
+#login .left{float: left;}
+#login .right{float: left;}
+#login .side_bg{height: 444px;background-image: url(../image/login/bg_02.png);}

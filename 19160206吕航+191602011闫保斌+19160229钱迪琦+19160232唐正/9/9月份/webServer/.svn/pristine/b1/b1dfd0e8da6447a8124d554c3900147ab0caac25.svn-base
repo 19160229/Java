@@ -1,0 +1,70 @@
+package com.jumploo.cms.web.action.task;
+
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.web.action.BaseAction;
+
+/**
+ * @author Feng
+ *
+ */
+public class TaskFindAction extends BaseAction {
+
+	private String mongoIid;
+	private int userIid;
+	private long time;
+	
+	@FormBean
+	public String execute()
+	{
+		return SUCCESS;
+	}
+	
+	@FormBean
+	public String findTask()
+	{
+		Task task = new Task();
+		task.setMongoid(mongoIid);
+		taskInfoAddMgmt.action(task);
+		return SUCCESS;
+	}
+	
+	@FormBean
+	public String findTaskList()
+	{
+		Task task = new Task();
+		//"1448196660000"
+//		task.setCreateTime(time);
+		task.setCreateTime(1448529600000L);
+		taskListFindByTimeMgmt.action(task);
+		id = "/WEB-INF/jsp/task/taskList.jsp";
+		return SUCCESS;
+	}
+
+	public String getMongoIid() {
+		return mongoIid;
+	}
+
+	public void setMongoIid(String mongoIid) {
+		this.mongoIid = mongoIid;
+	}
+
+	public int getUserIid() {
+		return userIid;
+	}
+
+	public void setUserIid(int userIid) {
+		this.userIid = userIid;
+	}
+
+	public long getTime() {
+		return time;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+	
+	
+}

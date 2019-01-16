@@ -1,0 +1,133 @@
+package com.jumploo.cms.bean;
+
+public class Task extends CmdOperation{
+	private String mongoid;//mongoiid
+	private User publisher;//
+	private String description;
+	private DicTaskType taskType;
+	private long createTime;
+	private int timeLength;
+	private String address;
+	private LatLon preciseLocation;
+	private double latitude;
+	private double longitude;
+	private int state;
+	private int contentPost;
+
+	public Task(String mongoid, User publisher, String description, DicTaskType taskType, long createTime, int timeLength,
+			String address, LatLon preciseLocation, int state, int contentPost) {
+		super();
+		this.mongoid = mongoid;
+		this.publisher = publisher;
+		this.description = description;
+		this.taskType = taskType;
+		this.createTime = createTime;
+		this.timeLength = timeLength;
+		this.address = address;
+		this.preciseLocation = preciseLocation;
+		this.state = state;
+		this.contentPost = contentPost;
+	}
+
+	public Task() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getMongoid() {
+		return mongoid;
+	}
+
+	public void setMongoid(String mongoid) {
+		this.mongoid = mongoid;
+	}
+
+	public User getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(User publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public DicTaskType getTaskType() {
+		return taskType;
+	}
+
+	public void setTaskType(DicTaskType taskType) {
+		this.taskType = taskType;
+	}
+
+	public long getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(long createTime) {
+		this.createTime = createTime;
+	}
+
+	public int getTimeLength() {
+		return timeLength;
+	}
+
+	public void setTimeLength(int timeLength) {
+		this.timeLength = timeLength;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public LatLon getPreciseLocation() {
+		return preciseLocation;
+	}
+
+	public void setPreciseLocation(LatLon preciseLocation) {
+		this.preciseLocation = preciseLocation;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public int getContentPost() {
+		return contentPost;
+	}
+
+	public void setContentPost(int contentPost) {
+		this.contentPost = contentPost;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+}

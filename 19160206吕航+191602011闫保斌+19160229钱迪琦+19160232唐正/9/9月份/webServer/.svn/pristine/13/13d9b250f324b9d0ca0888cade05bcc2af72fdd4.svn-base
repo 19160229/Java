@@ -1,0 +1,24 @@
+package com.jumploo.cms.bean;
+
+/**
+ * @author aa
+ * 基础类
+ */
+public class Basic
+{
+	/**
+	 * 主键ID
+	 */
+	private String primaryId;
+
+	public String getPrimaryId()
+	{
+		return primaryId;
+	}
+
+	public void setPrimaryId(String primaryId) 
+	{
+		this.primaryId = primaryId;
+	}
+	
+}

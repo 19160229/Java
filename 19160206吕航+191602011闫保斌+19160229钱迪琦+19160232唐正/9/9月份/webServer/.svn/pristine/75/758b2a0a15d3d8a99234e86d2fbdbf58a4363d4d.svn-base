@@ -1,0 +1,51 @@
+package com.jumploo.cms.web.action.task;
+
+import org.jessma.mvc.FormBean;
+
+import com.jumploo.cms.web.action.BaseAction;
+
+/**
+ * @author Feng
+ *
+ */
+public class TaskFindAction extends BaseAction {
+
+	private String mongoIid;
+	private int userIid;
+	
+	@FormBean
+	public String execute()
+	{
+		return SUCCESS;
+	}
+	
+	@FormBean
+	public String FindTask()
+	{
+		return SUCCESS;
+	}
+	
+	@FormBean
+	public String FindList()
+	{
+		return SUCCESS;
+	}
+
+	public String getMongoIid() {
+		return mongoIid;
+	}
+
+	public void setMongoIid(String mongoIid) {
+		this.mongoIid = mongoIid;
+	}
+
+	public int getUserIid() {
+		return userIid;
+	}
+
+	public void setUserIid(int userIid) {
+		this.userIid = userIid;
+	}
+	
+	
+}

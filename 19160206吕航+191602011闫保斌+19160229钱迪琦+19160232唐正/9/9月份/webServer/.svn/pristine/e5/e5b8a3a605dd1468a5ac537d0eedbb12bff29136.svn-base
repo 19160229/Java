@@ -1,0 +1,36 @@
+package com.jumploo.cms.db.server.impl;
+
+import java.util.List;
+
+import com.jumploo.cms.bean.Task;
+import com.jumploo.cms.db.dao.TaskDao;
+import com.jumploo.cms.db.dao.impl.DaoManager;
+import com.jumploo.cms.db.server.TaskServer;
+import com.jumploo.cms.util.Page;
+
+public class TaskServerImpl implements TaskServer {
+
+	private static TaskServerImpl aa = new TaskServerImpl();
+	private TaskDao dao = null;
+	private TaskServerImpl()
+	{
+		dao = DaoManager.getTaskDao();
+	}
+	public static TaskServer getServer()
+	{
+		return aa;
+	}
+	@Override
+	public int getTaskByMongoIid(Task task) throws Exception {
+		return dao.getTaskByMongoIid(task);
+	}
+	@Override
+	public Task addTask(Task task) throws Exception {
+		return dao.addTask(task);
+	}
+	@Override
+	public int getTaskListByTime(List<Task> taskList, long time, Page page) throws Exception {
+		return dao.getTaskListByTime(taskList, time, page);
+	}
+
+}

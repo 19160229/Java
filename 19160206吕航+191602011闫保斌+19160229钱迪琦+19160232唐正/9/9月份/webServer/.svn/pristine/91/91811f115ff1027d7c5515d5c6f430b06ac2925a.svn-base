@@ -1,0 +1,12 @@
+package com.jumploo.cms.db.server;
+
+import com.jumploo.cms.bean.User;
+
+public interface UserServer {
+	/**
+	 * 通过id获得某个user实体
+	 * @param id
+	 * @return
+	 */
+	public User findUserByID(String id) throws Exception;
+}

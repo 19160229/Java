@@ -1,0 +1,516 @@
+body {
+	margin: 0;
+	padding: 0;
+	border: 0 none #fff;
+	border-collapse: collapse;
+	font-size: 16px;
+	line-height: 18px;
+	background: #f5f6f6;
+}
+
+img {
+	border: 0;
+}
+
+#indexTop {
+	height: 80px;
+	background: url(../images/top_patchs.png) repeat-x top right;
+}
+
+#systemBar {
+	height: 80px;
+	vertical-align: top;
+	text-align: right;
+	background: url(../images/top.jpg) no-repeat;
+}
+
+#systemBar a {
+	font-size: 12px;
+	color: #d5d5d5;
+	text-decoration: none;
+}
+
+/* index bar */
+#indexBar {
+	width: 100%;
+	background: url(../images/top_patchs.png) repeat-x top left;
+}
+
+#indexLeft {
+	background: #e4e9ef;
+}
+
+#switchBar {
+	background: url(../images/switch_bg.jpg) repeat-y;
+}
+
+#switchBar div {
+	position: absolute;
+	top: 40%;
+	right: 0;
+	cursor: pointer;
+}
+
+#navBar {
+	width: 100%;
+	line-height: 25px;
+	color: #F29A00;
+	background: url(../images/top_3.gif) repeat-x;
+}
+
+.bar {
+	line-height: 35px;
+	background: #e4e9ef;
+}
+
+.bar .search {
+	padding: 3px 0 3px 25px;
+	background: url(../images/icon_r2_c2s.png) no-repeat 3px 50%;
+}
+
+.bar .result {
+	padding: 3px 0 3px 25px;
+	background: url(../images/icon_r4_c3s.png) no-repeat 3px 50%;
+}
+
+.bar .basic {
+	padding: 3px 0 3px 25px;
+	background: url(../images/kh_3.gif) no-repeat 3px 50%;
+}
+
+.bar .detail {
+	padding: 3px 0 3px 25px;
+	background: url(../images/kh_2.gif) no-repeat 3px 50%;
+}
+
+.pageLink {
+	width: 100%;
+	height: 25px;
+	color: #515b74;
+}
+
+.pageLink td {
+	text-align: center;
+	vertical-align: bottom;
+}
+
+/*********************************************************/
+.tb {
+	width: 99%;
+	background: #F0F0F0;
+}
+
+.tb th {
+	font-size: 14px;
+	color: #061743;
+	font-weight: bold;
+	background-color: white;
+	height: 30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	border: 1px solid #E4DEDE;
+}
+
+.tb tr {
+	background: #ffffff;
+}
+
+.tb td {
+	color: #515b74;
+	border: 1px solid #E4DEDE;
+	height: 31px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* for ie7,firefox,chrome */
+.tb tr:hover {
+	/*background: #fff4cc;*/
+	background: #f5f6f6;
+}
+
+/* for ie6 */
+* html .tb tr {
+	behavior: expression(this.onmouseover = new Function("this.className = 'tr_on';"),
+		this.onmouseout= new Function("this.className = 'tr';"),
+		this.style.behavior= null);
+}
+
+.tb .tr {
+	background: #ffffff;
+}
+
+.tb .tr_on {
+	/*background: #fff4cc;*/
+	background: #f5f6f6;
+}
+
+.tb .tr_selected {
+	background: c6e7ff;
+}
+/******************************************************/
+
+/*****************************************************/
+.tb2 {
+	width: 99%;
+	border: 0;
+	background: #F0F0F0;
+}
+
+.tb2 th {
+	font-size: 12px;
+	color: #536678;
+	font-weight: bold;
+	background-color: #F0F0F0;
+	height: 23px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.tb2 tr {
+	background: #ffffff;
+}
+
+.tb2 td {
+	color: #333333;
+	border: 0.5px solid #f5f6f6;
+	height: 21px;
+	vertical-align: bottom;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.tb2 .tr {
+	background: #ffffff;
+}
+
+.tb2 .tr_on {
+	/*background: #fff4cc;*/
+	background: #f5f6f6;
+}
+
+.tb2 .tr_selected {
+	background: c6e7ff;
+}
+
+/******************************************************/
+.inputDiv {
+	margin: 2% 5%;
+}
+
+.inputDiv2 {
+	margin: 2% 1%;
+}
+
+.btnDiv {
+	text-align: right;
+	margin: 1% 5%;
+}
+
+.clear {
+	clear: both;
+}
+
+.btn {
+	margin: 0;
+	display: inline-block;
+	width: 100px;
+	height: 28px;
+	line-height: 27px;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+	color: #5fc2f5;
+}
+.btn2 {
+	margin: 0;
+	display: inline-block;
+	width: 100px;
+	height: 28px;
+	line-height: 27px;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+	color: #5fc2f5;
+}
+.btn:link, .btn:visited {
+	background: url(../images/btns.png) no-repeat center top;
+}
+.btn2:link, .btn2:visited {
+	background: url(../images/btns2.png) no-repeat center top;
+	margin-top: 10px;
+}
+.btn:hover {
+	text-decoration: none;
+	color: #000;
+	/*
+	background: url(../images/btn_on.gif) no-repeat center top;
+	*/
+}
+
+a.btnLogin {
+	display: inline-block;
+	width: 70px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: url(../images/login_but.gif) no-repeat center top;
+}
+
+.btnLogin:link, .btnLogin:visited, .btnLogin:hover {
+	text-decoration: none;
+	color: #fff;
+}
+
+.btnLogin {
+	border: 0;
+	width: 70px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: url(../images/login_but.gif) no-repeat center top;
+}
+
+td {
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.selectBox1 {
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	width: 100px;
+	height: 21px;
+}
+
+.box {
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	width: 163px;
+	height: 16px;
+}
+
+.textarea {
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	rows: 15
+}
+
+.selectBox {
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	width: 155px;
+	height: 21px;
+}
+
+.box2 {
+	margin: 0;
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	width: 30px;
+	height: 16px;
+}
+
+.box4 {
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	width: 155px;
+	height: 16px;
+}
+
+.box5 {
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	color: #505050;
+	width: 86px;
+	height: 16px;
+}
+
+.required {
+	color: #990000
+}
+
+a:visited {
+	color: #000000;
+	font-size: 12px;
+	text-decoration: none;
+}
+-------------------------------------
+a:link {
+	color: #515b74;
+	text-decoration: none;
+}
+
+a:hover {
+	font-size: 14px;
+	color: #999999;
+	text-decoration: underline;
+}
+
+.dtree {
+	margin: 0 10%;
+	font-family: "����";
+	font-size: 14px;
+	color: #000000;
+	white-space: nowrap;
+}
+
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+
+.dtree a {
+	color: #333;
+	text-decoration: none;
+}
+
+.dtree a.node, .dtree a.nodeSel {
+	white-space: nowrap;
+	padding: 2px 4px 2px 4px;
+}
+
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: #B7B7B7;
+	text-decoration: underline;
+}
+
+.dtree a.nodeSel {
+	background-color: #3e3f3f;
+	color: #FFFFFF;
+}
+
+.dtree .clip {
+	overflow: hidden;
+}
+
+/* ������־��ϸ��Ϣҳ����ʽ add by wujuan  20081225 begin*/
+.wrap {
+	word-break: break-all;
+	width: 350px;
+}
+
+.sp {
+	vertical-align: middle;
+	text-align: center;
+}
+
+.log {
+	OVERFLOW: hidden;
+	WIDTH: 110px;
+	WHITE-SPACE: nowrap;
+	TEXT-OVERFLOW: ellipsis;
+}
+
+.log1 {
+	CURSOR: hand
+}
+
+.log2 {
+	width: 100%;
+	border: 0;
+	background: #f5f6f6;
+}
+
+.log2 th {
+	font-size: 12px;
+	height: 25px;
+	color: #536678;
+	background: #e7eaf2;
+	text-align: center;
+}
+
+.log2 td {
+	font-size: 12px;
+	line-height: 16pt;
+	background: #ffffff;
+	overflow: auto;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.logbar {
+	line-height: 25px;
+	background: url(../images/td_bg.gif);
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
+
+.log3 {
+	position: static;
+	height: 100%;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	overflow-y: auto;
+	text-align: center;
+}
+/* ������־��ϸ��Ϣҳ����ʽ add by wujuan  20081225 end*/
+
+/* ������������������ʾ��Ϣ��֪�û������ʽ��ʽ add by wujuan  20081226 begin*/
+.tips_bgline {
+	BORDER-RIGHT: #d1d1d1 1px solid;
+	PADDING-RIGHT: 4px;
+	BORDER-TOP: #d1d1d1 1px solid;
+	DISPLAY: none;
+	PADDING-LEFT: 4px;
+	Z-INDEX: 100;
+	FILTER: progid: DXImageTransform.Microsoft.Alpha(style= 0, opacity= 93);
+	PADDING-BOTTOM: 4px;
+	BORDER-LEFT: #d1d1d1 1px solid;
+	WORD-BREAK: normal;
+	PADDING-TOP: 4px;
+	BORDER-BOTTOM: #d1d1d1 1px solid;
+	POSITION: absolute;
+	top: 59px;
+	BACKGROUND-COLOR: #fffff11;
+}
+
+.footbg {
+	line-height: 30px;
+	background: url(../images/top_2.gif);
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
+/* ������������������ʾ��Ϣ��֪�û������ʽ��ʽ add by wujuan  20081226 end*/
+.magrin {
+	border: 1px solid #F0F0F0;
+}
+
+.magrin_a {
+	width: 100%;
+	margin: 0% 1% 0% 1%;
+	border: 1px solid #FFFFFF;
+	background: #F0F0F0;
+	padding: 1px 1px 1px 1px;
+}
+
+.magrin_page {
+	width: 100%;
+	border: 1px solid #FFFFFF;
+	background: #F0F0F0;
+}
