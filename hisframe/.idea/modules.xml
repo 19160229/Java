@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/clientserver/clientserver.iml" filepath="$PROJECT_DIR$/clientserver/clientserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/hisframe.iml" filepath="$PROJECT_DIR$/hisframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registry/registry.iml" filepath="$PROJECT_DIR$/registry/registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registrycenter/registrycenter.iml" filepath="$PROJECT_DIR$/registrycenter/registrycenter.iml" />
     </modules>
   </component>
 </project>
