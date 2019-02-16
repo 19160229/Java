@@ -2,91 +2,188 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dcf3a27-64cf-440c-86d8-24deb5a97230" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_9_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_9_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_5_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_server_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_servlet_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_freemarker_2_1_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_server_2_1_0_RC3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_2_1_0_RC3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_1_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientserver/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/registry.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/src/main/java/edu/njnu/his/RegistryApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registrycenter/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registrycenter/registrycenter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registrycenter/src/main/java/edu/njnu/his/RegistryCenterApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registrycenter/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_9_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_annotations_3_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_15_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_16_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_javanica_1_5_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_metrics_event_stream_1_5_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_serialization_1_5_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_zuul_zuul_core_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_core_10_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_hystrix_10_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_slf4j_10_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_spring_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxjava_reactive_streams_1_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_jcip_jcip_annotations_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_4_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_3_7_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_23_1_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_1_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_mongodb_2_1_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_1_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_zuul_2_1_0_RC3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_1_0_RC3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_2_1_0_RC3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_zuul_2_1_0_RC3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_1_0_RC3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_mongodb_2_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/Drug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MrDrug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/PatientFallbackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/PatientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/RemoteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/DrugServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/controller/DrugController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/dao/MrDrugDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/Drug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/MrDrug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drugserver/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/gateway.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/java/edu/njnu/his/GatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/patientserver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/PatientServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/controller/MrController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/dao/MrDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/dao/PatientDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/Drug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/MrDrug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/service/DrugFallbackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/service/DrugService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientserver/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/clientserver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/clientserver.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/target/classes/edu/njnu/his/ClientServerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/target/classes/edu/njnu/his/ClientServerApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/target/classes/edu/njnu/his/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/target/classes/edu/njnu/his/controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientserver/target/classes/edu/njnu/his/model/MedicalRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/clientserver/target/classes/edu/njnu/his/model/MedicalRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hisframe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hisframe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/registry/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrycenter/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrycenter/registrycenter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/drugserver/drugserver.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrycenter/src/main/java/edu/njnu/his/RegistryCenterApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrycenter/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrycenter/target/classes/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrycenter/target/classes/edu/njnu/his/RegistryCenterApplication.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/clientserver/target/" />
     <ignored path="$PROJECT_DIR$/registrycenter/target/" />
     <ignored path="$PROJECT_DIR$/registry/target/" />
+    <ignored path="$PROJECT_DIR$/patientserver/target/" />
+    <ignored path="$PROJECT_DIR$/drugserver/target/" />
+    <ignored path="$PROJECT_DIR$/gateway/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="841">
-              <caret line="76" column="18" lean-forward="true" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/registrycenter/pom.xml">
+        <entry file="file://$PROJECT_DIR$/gateway/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/registry/src/main/java/edu/njnu/his/RegistryApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#195#196#0" expanded="true" />
-                <element signature="e#231#232#0" expanded="true" />
-              </folding>
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/registry/src/main/resources/application.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/gateway/src/main/java/edu/njnu/his/GatewayApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/registry/pom.xml">
+        <entry file="file://$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/DrugServerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="114">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gateway/src/main/resources/application.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="74" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1368">
+              <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -96,9 +193,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>E:\Oliver_Git\SoftwareArchitecture\hisframe\src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -106,16 +212,42 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/clientserver/pom.xml" />
-        <option value="$PROJECT_DIR$/clientserver/src/main/resources/application.yaml" />
-        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java" />
-        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" />
-        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/registrycenter/src/main/java/edu/njnu/his/RegistryCenterApplication.java" />
         <option value="$PROJECT_DIR$/registrycenter/pom.xml" />
         <option value="$PROJECT_DIR$/registrycenter/src/main/resources/application.yaml" />
         <option value="$PROJECT_DIR$/registry/pom.xml" />
         <option value="$PROJECT_DIR$/registry/src/main/java/edu/njnu/his/RegistryApplication.java" />
+        <option value="$PROJECT_DIR$/registry/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/clientserver/pom.xml" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/RemoteService.java" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/PatientService.java" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/dao/MrDao.java" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/dao/PatientDao.java" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/DrugServerApplication.java" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/drug.java" />
+        <option value="$PROJECT_DIR$/patientserver/pom.xml" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/PatientServerApplication.java" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/controller/MrController.java" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/service/DrugService.java" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/PatientFallbackService.java" />
+        <option value="$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/service/DrugFallbackService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/njnu/his/model/TestEntity.java" />
+        <option value="$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/drugserver/pom.xml" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/Drug.java" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/dao/MrDrugDao.java" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/controller/DrugController.java" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/MrDrug.java" />
+        <option value="$PROJECT_DIR$/drugserver/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/gateway/src/main/java/edu/njnu/his/GatewayApplication.java" />
       </list>
     </option>
   </component>
@@ -125,6 +257,22 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="drugserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="drugserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="20" />
@@ -141,6 +289,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,74 +297,49 @@
               <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
               <item name="hisframe" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hisframe" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hisframe" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hisframe" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hisframe" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hisframe" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hisframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hisframe" type="462c0819:PsiDirectoryNode" />
-              <item name="registrycenter" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547688240647" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547862419274" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/src" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Oliver_Git\SoftwareArchitecture\hisframe\clientserver\src\main\java\edu\njnu\his\model" />
+      <recent name="E:\Oliver_Git\SoftwareArchitecture\hisframe\patientserver\src\main\java\edu\njnu\his\model" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu.njnu.his.model" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.njnu.his.service" />
       <recent name="edu.njnu.his.model" />
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -227,7 +351,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RegistryCenterApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
     <configuration name="ClientServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="clientserver" />
       <extension name="coverage">
@@ -241,30 +365,81 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="clientserver" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.clientserver.ClientserverApplication" />
+    <configuration name="DrugServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="drugserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.njnu.his.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.DrugServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HisframeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="hisframe" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.hisframe.HisframeApplication" />
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.njnu.his.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistryCenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="registrycenter" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.RegistryCenterApplication" />
+    <configuration name="PatientServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="patientserver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.PatientServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PatientServerApplication2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="patientserver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.PatientServerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="server.port" />
+          <option name="value" value="8084" />
+        </param>
+      </additionalParameters>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="registry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.njnu.his.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.njnu.his.RegistryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.PatientServerApplication2" />
+      <item itemvalue="Spring Boot.PatientServerApplication" />
+      <item itemvalue="Spring Boot.RegistryApplication" />
+      <item itemvalue="Spring Boot.ClientServerApplication" />
+      <item itemvalue="Spring Boot.DrugServerApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.ClientServerApplication" />
+        <item itemvalue="Spring Boot.DrugServerApplication" />
+        <item itemvalue="Spring Boot.RegistryApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -279,12 +454,20 @@
       <option name="presentableId" value="Default" />
       <updated>1547619140931</updated>
       <workItem from="1547619151878" duration="7763000" />
-      <workItem from="1547686154181" duration="2001000" />
+      <workItem from="1547686154181" duration="18069000" />
+      <workItem from="1547772545262" duration="997000" />
+      <workItem from="1547773823000" duration="1480000" />
+      <workItem from="1547779242458" duration="16517000" />
+      <workItem from="1547805434609" duration="262000" />
+      <workItem from="1547814387879" duration="2513000" />
+      <workItem from="1547859316403" duration="962000" />
+      <workItem from="1547860356179" duration="2638000" />
+      <workItem from="1548212508503" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9764000" />
+    <option name="totallyTimeSpent" value="51215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -297,9 +480,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532124" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26530612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -318,17 +500,18 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32891247" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32891247" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.32891247" />
+      <window_info anchor="bottom" id="Run Dashboard" order="15" visible="true" weight="0.3050398" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32955405" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32955405" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
@@ -337,40 +520,109 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/controller/MrController.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/clientserver/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clientserver/clientserver.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/registrycenter/src/main/java/edu/njnu/his/RegistryCenterApplication.java" />
+    <entry file="file://$PROJECT_DIR$/registrycenter/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/registrycenter/src/main/resources/application.yaml" />
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/RemoteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/clientserver/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.4.RELEASE/spring-data-mongodb-2.1.4.RELEASE.jar!/org/springframework/data/mongodb/core/query/Criteria.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2394">
+          <caret line="126" column="37" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Double.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="680" column="15" selection-start-line="680" selection-start-column="15" selection-end-line="680" selection-end-column="15" />
+          <folding>
+            <element signature="e#26241#26242#0" expanded="true" />
+            <element signature="e#26274#26275#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/Drug.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java">
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/model/MrDrug.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/PatientFallbackService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/PatientServerApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -378,65 +630,235 @@
     <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MedicalRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registrycenter/src/main/java/edu/njnu/his/RegistryCenterApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/njnu/his/model/TestEntity.java" />
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/service/PatientService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        <state relative-caret-position="209">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registrycenter/src/main/resources/application.yaml">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/67f1ff6e-83aa-4b6d-a648-89b13f7948bd/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/drugserver.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        <state relative-caret-position="323">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/Drug.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="76" column="18" lean-forward="true" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+        <state relative-caret-position="133">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/model/MrDrug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/dao/MrDrugDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/Drug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/model/MrDrug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/controller/DrugController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/registry/src/main/java/edu/njnu/his/RegistryApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/registry/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registrycenter/pom.xml">
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/dao/PatientDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="175">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registry/src/main/java/edu/njnu/his/RegistryApplication.java">
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/dao/MrDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        <state relative-caret-position="95">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/controller/MrController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/registry/src/main/resources/application.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/service/DrugService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patientserver/src/main/java/edu/njnu/his/service/DrugFallbackService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientserver/src/main/java/edu/njnu/his/ClientServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gateway/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drugserver/src/main/java/edu/njnu/his/DrugServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gateway/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="74" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gateway/src/main/java/edu/njnu/his/GatewayApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -490,7 +912,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>clientserver</last-edited>
+          <last-edited>registry</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

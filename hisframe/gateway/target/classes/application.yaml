@@ -1,0 +1,17 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: gateway
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# 映射路径到各个内部微服务
+zuul:
+  routes:
+    cli:
+      path: /client/**    #将/client及以/client为开头的所有url映射到client-server服务 例如:/client/a /client/b/c /client
+      serviceId: client-server #跟clientserver服务的spring.application.name要一致

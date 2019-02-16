@@ -5,8 +5,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>clientserver</module>
-        <module>registrycenter</module>
         <module>registry</module>
+        <module>patientserver</module>
+        <module>drugserver</module>
+        <module>gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

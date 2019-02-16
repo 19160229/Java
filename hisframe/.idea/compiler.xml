@@ -7,13 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="clientserver" />
+        <module name="drugserver" />
+        <module name="gateway" />
+        <module name="patientserver" />
         <module name="registry" />
-        <module name="registrycenter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="clientserver" target="1.8" />
+      <module name="drugserver" target="1.8" />
+      <module name="gateway" target="1.8" />
       <module name="hisframe" target="1.8" />
+      <module name="patientserver" target="1.8" />
       <module name="registry" target="1.8" />
       <module name="registrycenter" target="1.8" />
     </bytecodeTargetLevel>
@@ -21,7 +26,10 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="clientserver" options="-parameters" />
+      <module name="drugserver" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="hisframe" options="-parameters" />
+      <module name="patientserver" options="-parameters" />
       <module name="registry" options="-parameters" />
       <module name="registrycenter" options="-parameters" />
     </option>

@@ -3,7 +3,9 @@
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/clientserver" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/drugserver" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/registry" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/registrycenter" charset="UTF-8" />
   </component>
 </project>
